@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Chimera VMS - TCC Cybersecurity',
+  tagline: 'Sistema de Gerenciamento de Vulnerabilidades com Inteligência Artificial',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://esthernunes.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/2025-2A-T22-G103-PUBLICO/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'esthernunes', // Usually your GitHub org/user name.
+  projectName: '2025-2A-T22-G103-PUBLICO', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -31,8 +31,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR'],
   },
 
   presets: [
@@ -75,21 +75,27 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Chimera VMS',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Chimera VMS Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'tccSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'TCC',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'sprintsSidebar',
+          position: 'left',
+          label: 'Sprints',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/esthernunes/2025-2A-T22-G103-PUBLICO',
           label: 'GitHub',
           position: 'right',
         },
@@ -99,46 +105,50 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentação',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Introdução',
               to: '/docs/intro',
             },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Fundamentação Teórica',
+              to: '/docs/fundamentacao/cybersecurity',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Sprints',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Sprint 1',
+              to: '/docs/sprints/sprint-1/objetivos',
             },
+            {
+              label: 'Progresso',
+              to: '/docs/sprints',
+            },
+          ],
+        },
+        {
+          title: 'Projeto',
+          items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/esthernunes/2025-2A-T22-G103-PUBLICO',
+            },
+            {
+              label: 'QITech',
+              href: 'https://qitech.com.br',
+            },
+            {
+              label: 'Inteli',
+              href: 'https://inteli.edu.br',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Esther Hikari - Chimera VMS TCC. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

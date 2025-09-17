@@ -2,46 +2,85 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Chimera VMS - Introdução
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## Visão Geral do Projeto
 
-## Getting Started
+O **Chimera VMS** (Vulnerability Management System) é um sistema inovador de gerenciamento de vulnerabilidades que combina automação, inteligência artificial e monitoramento contínuo para transformar a abordagem tradicional de segurança cibernética.
 
-Get started by **creating a new site**.
+## Problema Identificado
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Atualmente, as organizações enfrentam desafios significativos no gerenciamento de vulnerabilidades:
 
-### What you'll need
+- **Processos Manuais**: Análise manual de relatórios de vulnerabilidades consome tempo valioso da equipe de segurança
+- **Falsos Positivos**: Alto volume de alertas irrelevantes que sobrecarregam os analistas
+- **Resposta Reativa**: Abordagem reativa em vez de proativa para identificação de ameaças
+- **Falta de Centralização**: Dados dispersos em diferentes ferramentas e formatos
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## Solução Proposta
 
-## Generate a new site
+O Chimera VMS oferece uma solução integrada que:
 
-Generate a new Docusaurus site using the **classic template**.
+### 🔄 **Automação Completa**
+- Coleta automatizada de dados de vulnerabilidades
+- Normalização e estruturação de informações
+- Execução programada de scans de segurança
 
-The classic template will automatically be added to your project after you run the command:
+### 🤖 **Inteligência Artificial**
+- Modelo de Machine Learning para classificação de vulnerabilidades
+- Redução significativa de falsos positivos
+- Aprendizado contínuo baseado em feedback
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+### 📊 **Monitoramento Inteligente**
+- Dashboard em tempo real
+- Alertas via Opsgenie para vulnerabilidades críticas
+- Métricas de performance e eficácia
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+## Objetivos do Projeto
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+### Objetivo Geral
+Desenvolver um pipeline automatizado de gerenciamento de vulnerabilidades que transforme o processo de manual e reativo para automatizado e proativo.
 
-## Start your site
+### Objetivos Específicos
+- ✅ Automatizar a coleta e normalização de dados de vulnerabilidades
+- ✅ Implementar sistema de classificação inteligente com ML
+- ✅ Integrar alertas automáticos via Opsgenie
+- ✅ Desenvolver dashboard de visualização e monitoramento
+- ✅ Validar eficácia através de métricas quantitativas
 
-Run the development server:
+## Metodologia
 
-```bash
-cd my-website
-npm run start
-```
+O projeto utiliza metodologia ágil com **5 sprints** de 2 semanas cada:
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+1. **Sprint 1**: Planejamento e Preparação
+2. **Sprint 2**: Automação e Normalização
+3. **Sprint 3**: Estruturação e Inserção
+4. **Sprint 4**: Inteligência e Integração
+5. **Sprint 5**: Visualização e Validação
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+## Tecnologias Utilizadas
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- **Backend**: Python, FastAPI
+- **Machine Learning**: Scikit-learn, TensorFlow
+- **Banco de Dados**: PostgreSQL
+- **Monitoramento**: Opsgenie API
+- **Frontend**: React, TypeScript
+- **Infraestrutura**: Docker, Kubernetes
+
+## Equipe do Projeto
+
+| Nome | Função | Responsabilidades |
+|------|--------|-------------------|
+| **Esther Hikari** | Scrum Master & Developer | Desenvolvimento completo, gestão de sprints |
+| **Erik Oliveira** | Product Owner | Definição de requisitos, validação técnica |
+| **Rodolfo Goya** | Academic Advisor | Orientação acadêmica, revisão de documentação |
+
+## Próximos Passos
+
+1. 📖 Explore a [Fundamentação Teórica](/docs/fundamentacao/cybersecurity)
+2. 🚀 Acompanhe o [Progresso das Sprints](/docs/sprints/sprint-1/objetivos)
+3. 📊 Veja os [Resultados e Métricas](/docs/resultados/analise-vulnerabilidades)
+
+---
+
+*Este projeto representa uma contribuição significativa para o campo de segurança cibernética, combinando práticas acadêmicas rigorosas com aplicação prática em ambiente corporativo.*
