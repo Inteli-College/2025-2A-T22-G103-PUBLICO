@@ -18,55 +18,58 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
-      label: 'Fundamentação Teórica',
+      label: 'Module 13 - Chimera VMS Development',
       items: [
-        'fundamentacao/cybersecurity',
-        'fundamentacao/vulnerability-management',
-        'fundamentacao/machine-learning',
-        // 'fundamentacao/automation',
+        {
+          type: 'category',
+          label: 'Theoretical Foundation',
+          items: [
+            'fundamentacao/cybersecurity',
+            'fundamentacao/vulnerability-management',
+            'fundamentacao/machine-learning',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Methodology',
+          items: [
+            'metodologia/index',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Implementation',
+          items: [
+            'implementacao/index',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Results',
+          items: [
+            'resultados/index',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Conclusions',
+          items: [
+            'conclusoes/index',
+          ],
+        },
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: 'Metodologia',
-    //   items: [
-    //     'metodologia/abordagem',
-    //     'metodologia/ferramentas',
-    //     'metodologia/ambiente-teste',
-    //     'metodologia/metricas',
-    //   ],
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Implementação',
-    //   items: [
-    //     'implementacao/arquitetura',
-    //     'implementacao/coleta-dados',
-    //     'implementacao/ml-model',
-    //     'implementacao/alertas',
-    //     'implementacao/dashboard',
-    //   ],
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Resultados',
-    //   items: [
-    //     'resultados/analise-vulnerabilidades',
-    //     'resultados/eficacia-modelo',
-    //     'resultados/metricas-performance',
-    //     'resultados/casos-uso',
-    //   ],
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Conclusões',
-    //   items: [
-    //     'conclusoes/contribuicoes',
-    //     'conclusoes/limitacoes',
-    //     'conclusoes/trabalhos-futuros',
-    //     'conclusoes/referencias',
-    //   ],
-    // },
+    {
+      type: 'category',
+      label: 'Module 14 - Future Work',
+      items: [
+        'modulo14/index',
+        'modulo14/intro',
+        'modulo14/roadmap',
+        'modulo14/research',
+        'modulo14/expansion',
+      ],
+    },
   ],
 
   // Sidebar para documentação das Sprints

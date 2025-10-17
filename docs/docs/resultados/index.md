@@ -2,38 +2,38 @@
 sidebar_position: 1
 ---
 
-# Resultados
+# Results
 
-## Visão Geral
+## Overview
 
-Este documento apresenta os resultados obtidos com a implementação do **Chimera VMS**, incluindo métricas de performance, validação técnica, impacto no negócio e comparação com sistemas existentes. Os resultados demonstram o sucesso do projeto em atingir seus objetivos principais.
+This document presents the results obtained with the implementation of **Chimera VMS**, including performance metrics, technical validation, business impact, and comparison with existing systems. The results demonstrate the project's success in achieving its main objectives.
 
-## Métricas de Performance Técnica
+## Technical Performance Metrics
 
-### Performance do Sistema
+### System Performance
 
-#### Tempo de Resposta
-- **API REST**: 85ms (média), 150ms (95º percentil)
-- **Dashboard**: 1.8s (carregamento inicial)
-- **Classificação ML**: 45ms (por vulnerabilidade)
-- **Geração de Relatórios**: 2.3s (PDF), 1.1s (Excel)
+#### Response Time
+- **REST API**: 85ms (average), 150ms (95th percentile)
+- **Dashboard**: 1.8s (initial loading)
+- **ML Classification**: 45ms (per vulnerability)
+- **Report Generation**: 2.3s (PDF), 1.1s (Excel)
 
-#### Throughput e Escalabilidade
-- **Requisições por minuto**: 1,200 (sustentável)
-- **Pico de carga**: 2,000 req/min (testado)
-- **Usuários simultâneos**: 500+ (validado)
-- **Processamento de dados**: 10,000+ vulnerabilidades/dia
+#### Throughput and Scalability
+- **Requests per minute**: 1,200 (sustainable)
+- **Peak load**: 2,000 req/min (tested)
+- **Concurrent users**: 500+ (validated)
+- **Data processing**: 10,000+ vulnerabilities/day
 
-#### Disponibilidade
-- **Uptime**: 99.9% (nos últimos 30 dias)
-- **MTTR (Mean Time To Recovery)**: 3.2 minutos
-- **MTBF (Mean Time Between Failures)**: 720 horas
+#### Availability
+- **Uptime**: 99.9% (in the last 30 days)
+- **MTTR (Mean Time To Recovery)**: 3.2 minutes
+- **MTBF (Mean Time Between Failures)**: 720 hours
 
-### Performance do Machine Learning
+### Machine Learning Performance
 
-#### Acurácia do Modelo
+#### Model Accuracy
 ```python
-# Resultados de Validação Cruzada
+# Cross-Validation Results
 cv_results = {
     "accuracy": 0.892,
     "precision": 0.887,
@@ -42,7 +42,7 @@ cv_results = {
     "auc": 0.934
 }
 
-# Matriz de Confusão
+# Confusion Matrix
 confusion_matrix = [
     [245, 12, 3, 1],    # CRITICAL
     [8, 189, 15, 2],    # HIGH  
@@ -51,27 +51,27 @@ confusion_matrix = [
 ]
 ```
 
-#### Comparação com Métodos Tradicionais
-| Método | Acurácia | Precision | Recall | F1-Score |
+#### Comparison with Traditional Methods
+| Method | Accuracy | Precision | Recall | F1-Score |
 |--------|----------|-----------|--------|-----------|
 | **Chimera VMS (ML)** | **89.2%** | **88.7%** | **89.1%** | **88.9%** |
-| Análise Manual | 76.3% | 74.8% | 77.1% | 75.9% |
-| Regras Baseadas | 68.5% | 71.2% | 66.8% | 68.9% |
+| Manual Analysis | 76.3% | 74.8% | 77.1% | 75.9% |
+| Rule-Based | 68.5% | 71.2% | 66.8% | 68.9% |
 | CVSS Score Only | 72.1% | 73.4% | 70.9% | 72.1% |
 
-### Performance do Banco de Dados
+### Database Performance
 
-#### Otimizações Implementadas
-- **Índices Compostos**: Redução de 60% no tempo de consulta
-- **Connection Pooling**: 20 conexões simultâneas
+#### Implemented Optimizations
+- **Composite Indexes**: 60% reduction in query time
+- **Connection Pooling**: 20 simultaneous connections
 - **Query Cache**: 95% hit rate
-- **Particionamento**: Tabelas grandes particionadas por data
+- **Partitioning**: Large tables partitioned by date
 
-#### Métricas de Consulta
+#### Query Metrics
 ```sql
--- Exemplo de otimização
--- Antes: 450ms
--- Depois: 12ms (redução de 97%)
+-- Optimization Example
+-- Before: 450ms
+-- After: 12ms (97% reduction)
 
 EXPLAIN ANALYZE 
 SELECT cve_id, title, cvss_score 
@@ -86,64 +86,64 @@ LIMIT 100;
 -- Index Scan: idx_vulnerabilities_severity_date
 ```
 
-## Impacto no Negócio
+## Business Impact
 
-### Redução de Tempo de Análise
+### Analysis Time Reduction
 
-#### Antes do Chimera VMS
-- **Análise Manual**: 45 minutos por vulnerabilidade
-- **Processo Tradicional**: 3-5 dias para análise completa
-- **Falsos Positivos**: 35% das análises
-- **Cobertura**: 60% das vulnerabilidades analisadas
+#### Before Chimera VMS
+- **Manual Analysis**: 45 minutes per vulnerability
+- **Traditional Process**: 3-5 days for complete analysis
+- **False Positives**: 35% of analyses
+- **Coverage**: 60% of vulnerabilities analyzed
 
-#### Depois do Chimera VMS
-- **Análise Automática**: 2 minutos por vulnerabilidade
-- **Processo Otimizado**: 2-4 horas para análise completa
-- **Falsos Positivos**: 8% das análises (redução de 77%)
-- **Cobertura**: 95% das vulnerabilidades analisadas
+#### After Chimera VMS
+- **Automatic Analysis**: 2 minutes per vulnerability
+- **Optimized Process**: 2-4 hours for complete analysis
+- **False Positives**: 8% of analyses (77% reduction)
+- **Coverage**: 95% of vulnerabilities analyzed
 
-### Métricas de Eficiência
+### Efficiency Metrics
 
-#### Redução de Tempo
-- **Análise Individual**: 95% de redução (45min → 2min)
-- **Processo Completo**: 85% de redução (3-5 dias → 2-4 horas)
-- **Tempo de Resposta**: 90% mais rápido para incidentes críticos
-- **Throughput**: 22x mais vulnerabilidades processadas por dia
+#### Time Reduction
+- **Individual Analysis**: 95% reduction (45min → 2min)
+- **Complete Process**: 85% reduction (3-5 days → 2-4 hours)
+- **Response Time**: 90% faster for critical incidents
+- **Throughput**: 22x more vulnerabilities processed per day
 
-#### Melhoria na Precisão
-- **Acurácia de Classificação**: 89.2% (vs 76.3% manual)
-- **Redução de Falsos Positivos**: 77% (35% → 8%)
-- **Detecção de Vulnerabilidades Críticas**: 94% (vs 78% manual)
-- **Consistência**: 98% (vs 65% manual)
+#### Accuracy Improvement
+- **Classification Accuracy**: 89.2% (vs 76.3% manual)
+- **False Positive Reduction**: 77% (35% → 8%)
+- **Critical Vulnerability Detection**: 94% (vs 78% manual)
+- **Consistency**: 98% (vs 65% manual)
 
 ### ROI (Return on Investment)
 
-#### Custos Evitados
-- **Tempo de Analistas**: R$ 2.3M/ano economizados
-- **Redução de Incidentes**: R$ 1.8M/ano em danos evitados
-- **Automação de Processos**: R$ 850K/ano em eficiência
-- **Redução de Falsos Positivos**: R$ 420K/ano economizados
+#### Avoided Costs
+- **Analyst Time**: R$ 2.3M/year saved
+- **Incident Reduction**: R$ 1.8M/year in avoided damages
+- **Process Automation**: R$ 850K/year in efficiency
+- **False Positive Reduction**: R$ 420K/year saved
 
-#### Investimento Total
-- **Desenvolvimento**: R$ 180K
-- **Infraestrutura**: R$ 45K/ano
-- **Manutenção**: R$ 25K/ano
-- **Total**: R$ 250K (primeiro ano)
+#### Total Investment
+- **Development**: R$ 180K
+- **Infrastructure**: R$ 45K/year
+- **Maintenance**: R$ 25K/year
+- **Total**: R$ 250K (first year)
 
-#### ROI Calculado
+#### Calculated ROI
 ```
-ROI = (Benefícios - Investimento) / Investimento × 100
+ROI = (Benefits - Investment) / Investment × 100
 ROI = (R$ 5.37M - R$ 250K) / R$ 250K × 100
 ROI = 2,048%
 ```
 
-## Validação Técnica
+## Technical Validation
 
-### Testes de Carga e Stress
+### Load and Stress Tests
 
-#### Configuração dos Testes
+#### Test Configuration
 ```yaml
-# Configuração JMeter
+# JMeter Configuration
 load_test_config:
   users: 100
   ramp_up: 60s
@@ -155,15 +155,15 @@ load_test_config:
     - admin_operations: 10%
 ```
 
-#### Resultados dos Testes
-- **Tempo de Resposta Médio**: 85ms
-- **Tempo de Resposta Máximo**: 250ms
-- **Taxa de Erro**: 0.02%
+#### Test Results
+- **Average Response Time**: 85ms
+- **Maximum Response Time**: 250ms
+- **Error Rate**: 0.02%
 - **Throughput**: 1,200 req/min
-- **Uso de CPU**: 45% (média)
-- **Uso de Memória**: 384MB (pico)
+- **CPU Usage**: 45% (average)
+- **Memory Usage**: 384MB (peak)
 
-### Testes de Segurança
+### Security Tests
 
 #### OWASP ZAP Scan Results
 ```json
@@ -192,18 +192,18 @@ load_test_config:
 }
 ```
 
-#### Validação de Autenticação
-- **JWT Tokens**: Implementados corretamente
-- **Rate Limiting**: 100 req/min por usuário
-- **CORS**: Configurado adequadamente
-- **HTTPS**: SSL/TLS implementado
-- **Input Validation**: Todos os inputs validados
+#### Authentication Validation
+- **JWT Tokens**: Correctly implemented
+- **Rate Limiting**: 100 req/min per user
+- **CORS**: Properly configured
+- **HTTPS**: SSL/TLS implemented
+- **Input Validation**: All inputs validated
 
-### Testes de Integração
+### Integration Tests
 
-#### Cobertura de Testes
+#### Test Coverage
 ```python
-# Resultados de Cobertura
+# Coverage Results
 coverage_results = {
     "total_lines": 15847,
     "covered_lines": 15418,
@@ -212,7 +212,7 @@ coverage_results = {
     "functions_covered": 98.7
 }
 
-# Testes por Componente
+# Tests by Component
 component_tests = {
     "data_pipeline": 156,
     "ml_engine": 89,
@@ -222,108 +222,108 @@ component_tests = {
 }
 ```
 
-#### Cenários de Teste
-- **Fluxo Completo**: 100% dos cenários passaram
-- **Integração com APIs**: 100% funcionando
-- **Pipeline de Dados**: 99.8% de sucesso
-- **Sistema de Alertas**: 100% dos alertas entregues
-- **Dashboard**: 100% das funcionalidades testadas
+#### Test Scenarios
+- **Complete Flow**: 100% of scenarios passed
+- **API Integration**: 100% working
+- **Data Pipeline**: 99.8% success rate
+- **Alert System**: 100% of alerts delivered
+- **Dashboard**: 100% of features tested
 
-## Comparação com Sistemas Existentes
+## Comparison with Existing Systems
 
-### Benchmarking com Concorrentes
+### Competitor Benchmarking
 
 #### Qualys VMDR
-| Métrica | Chimera VMS | Qualys VMDR | Diferença |
+| Metric | Chimera VMS | Qualys VMDR | Difference |
 |---------|-------------|-------------|-----------|
-| Tempo de Scan | 2 min | 15 min | **87% mais rápido** |
-| Acurácia ML | 89.2% | 82.1% | **7.1% melhor** |
-| Falsos Positivos | 8% | 18% | **56% menos** |
-| Custo/Ano | R$ 45K | R$ 180K | **75% mais barato** |
+| Scan Time | 2 min | 15 min | **87% faster** |
+| ML Accuracy | 89.2% | 82.1% | **7.1% better** |
+| False Positives | 8% | 18% | **56% less** |
+| Cost/Year | R$ 45K | R$ 180K | **75% cheaper** |
 
 #### Rapid7 InsightVM
-| Métrica | Chimera VMS | Rapid7 InsightVM | Diferença |
+| Metric | Chimera VMS | Rapid7 InsightVM | Difference |
 |---------|-------------|-------------------|-----------|
-| Integração APIs | 15 APIs | 8 APIs | **87% mais** |
-| Customização | 100% | 60% | **40% mais flexível** |
-| Tempo de Deploy | 2 horas | 2 dias | **96% mais rápido** |
-| Suporte ML | Nativo | Limitado | **Superior** |
+| API Integration | 15 APIs | 8 APIs | **87% more** |
+| Customization | 100% | 60% | **40% more flexible** |
+| Deploy Time | 2 hours | 2 days | **96% faster** |
+| ML Support | Native | Limited | **Superior** |
 
 #### Tenable.io
-| Métrica | Chimera VMS | Tenable.io | Diferença |
+| Metric | Chimera VMS | Tenable.io | Difference |
 |---------|-------------|------------|-----------|
-| Dashboard Tempo Real | Sim | Sim | **Equivalente** |
-| Alertas Automáticos | Sim | Sim | **Equivalente** |
-| Código Aberto | Sim | Não | **Vantagem** |
-| Customização ML | Sim | Não | **Vantagem** |
+| Real-time Dashboard | Yes | Yes | **Equivalent** |
+| Automatic Alerts | Yes | Yes | **Equivalent** |
+| Open Source | Yes | No | **Advantage** |
+| ML Customization | Yes | No | **Advantage** |
 
-### Análise Competitiva
+### Competitive Analysis
 
-#### Vantagens do Chimera VMS
-1. **Machine Learning Nativo**: Modelo treinado especificamente para vulnerabilidades
-2. **Código Aberto**: Flexibilidade total de customização
-3. **Integração Completa**: APIs de múltiplas fontes
-4. **Custo-Benefício**: ROI de 2,048%
-5. **Performance Superior**: 87% mais rápido que concorrentes
+#### Chimera VMS Advantages
+1. **Native Machine Learning**: Model trained specifically for vulnerabilities
+2. **Open Source**: Total customization flexibility
+3. **Complete Integration**: Multiple source APIs
+4. **Cost-Benefit**: ROI of 2,048%
+5. **Superior Performance**: 87% faster than competitors
 
-#### Áreas de Melhoria Identificadas
-1. **Ecosystem**: Menor que soluções comerciais estabelecidas
-2. **Suporte**: Equipe menor comparada a grandes vendors
-3. **Integrações**: Algumas integrações específicas podem ser necessárias
-4. **Documentação**: Em expansão comparada a soluções maduras
+#### Identified Improvement Areas
+1. **Ecosystem**: Smaller than established commercial solutions
+2. **Support**: Smaller team compared to large vendors
+3. **Integrations**: Some specific integrations may be needed
+4. **Documentation**: Expanding compared to mature solutions
 
-## Feedback dos Usuários
+## User Feedback
 
-### Avaliação de Usabilidade
+### Usability Assessment
 
-#### Pesquisa com Usuários (n=25)
+#### User Survey (n=25)
 ```python
 usability_scores = {
-    "facilidade_de_uso": 4.6,  # Escala 1-5
-    "interface_intuitiva": 4.4,
-    "tempo_de_aprendizado": 4.2,
-    "satisfacao_geral": 4.5,
-    "recomendacao": 4.7
+    "ease_of_use": 4.6,  # Scale 1-5
+    "intuitive_interface": 4.4,
+    "learning_time": 4.2,
+    "overall_satisfaction": 4.5,
+    "recommendation": 4.7
 }
 ```
 
-#### Comentários dos Usuários
-> **Analista de Segurança Sênior**: "O dashboard é muito intuitivo e as visualizações ajudam muito na análise. A classificação automática é impressionante."
+#### User Comments
+> **Senior Security Analyst**: "The dashboard is very intuitive and the visualizations help a lot in analysis. The automatic classification is impressive."
 
-> **Gerente de TI**: "A redução no tempo de análise foi dramática. Conseguimos processar muito mais vulnerabilidades com a mesma equipe."
+> **IT Manager**: "The reduction in analysis time was dramatic. We can process much more vulnerabilities with the same team."
 
-> **CISO**: "O sistema de alertas integrado com Opsgenie mudou completamente nossa capacidade de resposta a incidentes."
+> **CISO**: "The alert system integrated with Opsgenie completely changed our incident response capability."
 
-### Casos de Uso Reais
+### Real Use Cases
 
-#### Caso 1: Empresa de Tecnologia (500+ funcionários)
-- **Vulnerabilidades Processadas**: 2,500/mês
-- **Tempo de Análise**: Redução de 85%
-- **Falsos Positivos**: Redução de 70%
-- **Satisfação**: 9.2/10
+#### Case 1: Technology Company (500+ employees)
+- **Processed Vulnerabilities**: 2,500/month
+- **Analysis Time**: 85% reduction
+- **False Positives**: 70% reduction
+- **Satisfaction**: 9.2/10
 
-#### Caso 2: Instituição Financeira (1,000+ funcionários)
-- **Vulnerabilidades Processadas**: 5,200/mês
-- **Tempo de Resposta**: Redução de 90%
-- **Cobertura**: Aumento de 40% para 95%
-- **ROI**: 1,850% no primeiro ano
+#### Case 2: Financial Institution (1,000+ employees)
+- **Processed Vulnerabilities**: 5,200/month
+- **Response Time**: 90% reduction
+- **Coverage**: Increase from 40% to 95%
+- **ROI**: 1,850% in the first year
 
-#### Caso 3: Órgão Governamental (2,000+ funcionários)
-- **Vulnerabilidades Processadas**: 8,100/mês
-- **Compliance**: 100% dos requisitos atendidos
-- **Auditoria**: Simplificação de 80%
-- **Custo**: Redução de 60% vs solução anterior
+#### Case 3: Government Agency (2,000+ employees)
+- **Processed Vulnerabilities**: 8,100/month
+- **Compliance**: 100% of requirements met
+- **Audit**: 80% simplification
+- **Cost**: 60% reduction vs previous solution
 
-## Métricas de Qualidade
+## Quality Metrics
 
-### Qualidade do Código
+### Code Quality
 
-#### Análise Estática
+#### Static Analysis
 ```python
 code_quality_metrics = {
     "lines_of_code": 15847,
-    "cyclomatic_complexity": 2.8,  # Média
-    "code_duplication": 1.2,       # Percentual
+    "cyclomatic_complexity": 2.8,  # Average
+    "code_duplication": 1.2,       # Percentage
     "maintainability_index": 87.3,
     "technical_debt": "2.5 hours",
     "code_smells": 12,
@@ -332,87 +332,87 @@ code_quality_metrics = {
 }
 ```
 
-#### Cobertura de Testes
-- **Testes Unitários**: 95.2%
-- **Testes de Integração**: 89.7%
-- **Testes E2E**: 78.3%
-- **Cobertura Total**: 97.3%
+#### Test Coverage
+- **Unit Tests**: 95.2%
+- **Integration Tests**: 89.7%
+- **E2E Tests**: 78.3%
+- **Total Coverage**: 97.3%
 
-### Documentação
+### Documentation
 
-#### Cobertura de Documentação
+#### Documentation Coverage
 - **API Documentation**: 100% (Swagger/OpenAPI)
 - **Code Documentation**: 94% (Docstrings)
-- **User Manual**: 100% completo
-- **Technical Documentation**: 98% completo
-- **Deployment Guide**: 100% completo
+- **User Manual**: 100% complete
+- **Technical Documentation**: 98% complete
+- **Deployment Guide**: 100% complete
 
-## Impacto Ambiental e Sustentabilidade
+## Environmental Impact and Sustainability
 
-### Eficiência Energética
+### Energy Efficiency
 
-#### Comparação de Consumo
-- **Chimera VMS**: 2.3 kWh/dia
-- **Solução Tradicional**: 8.7 kWh/dia
-- **Redução**: 74% no consumo energético
-- **CO2 Evitado**: 1.2 toneladas/ano
+#### Consumption Comparison
+- **Chimera VMS**: 2.3 kWh/day
+- **Traditional Solution**: 8.7 kWh/day
+- **Reduction**: 74% in energy consumption
+- **CO2 Avoided**: 1.2 tons/year
 
-#### Otimizações Implementadas
-- **Cache Inteligente**: Redução de 60% em consultas ao banco
-- **Processamento Assíncrono**: Melhor utilização de recursos
-- **Containerização**: Isolamento eficiente de recursos
-- **Auto-scaling**: Ajuste automático de recursos
+#### Implemented Optimizations
+- **Smart Cache**: 60% reduction in database queries
+- **Asynchronous Processing**: Better resource utilization
+- **Containerization**: Efficient resource isolation
+- **Auto-scaling**: Automatic resource adjustment
 
-## Conclusões dos Resultados
+## Results Conclusions
 
-### Objetivos Alcançados
+### Objectives Achieved
 
-#### Objetivos Técnicos ✅
-- **Performance**: Todas as metas de performance superadas
-- **Escalabilidade**: Sistema suporta 500+ usuários simultâneos
-- **Disponibilidade**: 99.9% de uptime alcançado
-- **Segurança**: Zero vulnerabilidades críticas
+#### Technical Objectives ✅
+- **Performance**: All performance goals exceeded
+- **Scalability**: System supports 500+ concurrent users
+- **Availability**: 99.9% uptime achieved
+- **Security**: Zero critical vulnerabilities
 
-#### Objetivos de Negócio ✅
-- **ROI**: 2,048% superando expectativa de 500%
-- **Redução de Tempo**: 85% vs meta de 70%
-- **Melhoria de Precisão**: 89.2% vs meta de 85%
-- **Satisfação do Cliente**: 4.5/5 vs meta de 4.0/5
+#### Business Objectives ✅
+- **ROI**: 2,048% exceeding expectation of 500%
+- **Time Reduction**: 85% vs goal of 70%
+- **Accuracy Improvement**: 89.2% vs goal of 85%
+- **Customer Satisfaction**: 4.5/5 vs goal of 4.0/5
 
-#### Objetivos de Pesquisa ✅
-- **Inovação**: Primeiro sistema ML nativo para vulnerabilidades
-- **Publicação**: 2 artigos aceitos em conferências
-- **Transferência de Tecnologia**: 3 empresas implementando
-- **Impacto Acadêmico**: 15+ citações em 6 meses
+#### Research Objectives ✅
+- **Innovation**: First native ML system for vulnerabilities
+- **Publication**: 2 papers accepted at conferences
+- **Technology Transfer**: 3 companies implementing
+- **Academic Impact**: 15+ citations in 6 months
 
-### Lições Aprendidas
+### Lessons Learned
 
-#### Sucessos
-1. **Arquitetura Microserviços**: Facilita manutenção e escalabilidade
-2. **ML Nativo**: Diferencial competitivo significativo
-3. **Integração Completa**: APIs múltiplas aumentam valor
-4. **Código Aberto**: Facilita adoção e customização
+#### Successes
+1. **Microservices Architecture**: Facilitates maintenance and scalability
+2. **Native ML**: Significant competitive advantage
+3. **Complete Integration**: Multiple APIs increase value
+4. **Open Source**: Facilitates adoption and customization
 
-#### Desafios Superados
-1. **Qualidade dos Dados**: Implementação de validação robusta
-2. **Performance ML**: Otimização de algoritmos e cache
-3. **Integração APIs**: Rate limiting e retry logic
-4. **Escalabilidade**: Arquitetura preparada para crescimento
+#### Overcome Challenges
+1. **Data Quality**: Implementation of robust validation
+2. **ML Performance**: Algorithm and cache optimization
+3. **API Integration**: Rate limiting and retry logic
+4. **Scalability**: Architecture prepared for growth
 
-### Próximos Passos
+### Next Steps
 
-#### Melhorias Planejadas
-1. **Modelo ML**: Implementação de Deep Learning
-2. **Integrações**: Expansão para mais APIs
-3. **Mobile**: Desenvolvimento de app móvel
-4. **Analytics**: Dashboard de analytics avançado
+#### Planned Improvements
+1. **ML Model**: Deep Learning implementation
+2. **Integrations**: Expansion to more APIs
+3. **Mobile**: Mobile app development
+4. **Analytics**: Advanced analytics dashboard
 
-#### Expansão
-1. **Mercado**: Expansão para outros segmentos
-2. **Funcionalidades**: Novos módulos de segurança
-3. **Parcerias**: Integração com mais vendors
-4. **Internacional**: Expansão para mercados globais
+#### Expansion
+1. **Market**: Expansion to other segments
+2. **Features**: New security modules
+3. **Partnerships**: Integration with more vendors
+4. **International**: Expansion to global markets
 
 ---
 
-**Próxima Seção**: [Conclusões](/docs/conclusoes/)
+**Next Section**: [Conclusions](/docs/conclusoes/)
