@@ -2,116 +2,116 @@
 sidebar_position: 1
 ---
 
-# Metodologia
+# Methodology
 
-## Visão Geral
+## Overview
 
-Este documento apresenta a metodologia utilizada no desenvolvimento do projeto **Chimera VMS** (Vulnerability Management System), um sistema inteligente de gestão de vulnerabilidades que utiliza técnicas de Machine Learning para classificação automática e integração com sistemas de alertas.
+This document presents the methodology used in the development of the **Chimera VMS** (Vulnerability Management System) project, an intelligent vulnerability management system that uses Machine Learning techniques for automatic classification and integration with alert systems.
 
-## Metodologia de Desenvolvimento
+## Development Methodology
 
-### Abordagem Ágil - Scrum
+### Agile Approach - Scrum
 
-O projeto foi desenvolvido utilizando a metodologia **Scrum**, adaptada para projetos de pesquisa e desenvolvimento acadêmico. Esta escolha se justifica pela necessidade de:
+The project was developed using the **Scrum** methodology, adapted for academic research and development projects. This choice is justified by the need for:
 
-- **Flexibilidade**: Adaptação rápida a mudanças de requisitos
-- **Iteratividade**: Desenvolvimento incremental com feedback constante
-- **Transparência**: Visibilidade completa do progresso
-- **Colaboração**: Trabalho em equipe eficiente
+- **Flexibility**: Quick adaptation to requirement changes
+- **Iterativeness**: Incremental development with constant feedback
+- **Transparency**: Complete visibility of progress
+- **Collaboration**: Efficient teamwork
 
-### Estrutura das Sprints
+### Sprint Structure
 
-O projeto foi dividido em **5 sprints** de 2 semanas cada, totalizando 10 semanas de desenvolvimento:
+The project was divided into **5 sprints** of 2 weeks each, totaling 10 weeks of development:
 
-#### Sprint 1: Planejamento e Estruturação
-- **Objetivo**: Estabelecer base sólida do projeto
-- **Foco**: Arquitetura, ambiente e requisitos
-- **Duração**: 2 semanas
+#### Sprint 1: Planning and Structuring
+- **Objective**: Establish solid project foundation
+- **Focus**: Architecture, environment, and requirements
+- **Duration**: 2 weeks
 
-#### Sprint 2: Automação e Normalização
-- **Objetivo**: Implementar coleta e processamento de dados
-- **Foco**: Pipeline de dados e normalização
-- **Duração**: 2 semanas
+#### Sprint 2: Automation and Normalization
+- **Objective**: Implement data collection and processing
+- **Focus**: Data pipeline and normalization
+- **Duration**: 2 weeks
 
-#### Sprint 3: Estruturação e Inserção
-- **Objetivo**: Desenvolver sistema de ML
-- **Foco**: Modelo de classificação e integração
-- **Duração**: 2 semanas
+#### Sprint 3: Structuring and Insertion
+- **Objective**: Develop ML system
+- **Focus**: Classification model and integration
+- **Duration**: 2 weeks
 
-#### Sprint 4: Inteligência e Integração
-- **Objetivo**: Integrar com sistemas externos
-- **Foco**: Opsgenie e alertas automáticos
-- **Duração**: 2 semanas
+#### Sprint 4: Intelligence and Integration
+- **Objective**: Integrate with external systems
+- **Focus**: Opsgenie and automatic alerts
+- **Duration**: 2 weeks
 
-#### Sprint 5: Visualização e Validação
-- **Objetivo**: Finalizar e validar sistema
-- **Foco**: Dashboard, testes e produção
-- **Duração**: 2 semanas
+#### Sprint 5: Visualization and Validation
+- **Objective**: Finalize and validate system
+- **Focus**: Dashboard, tests, and production
+- **Duration**: 2 weeks
 
-## Metodologia de Pesquisa
+## Research Methodology
 
-### Abordagem Quantitativa
+### Quantitative Approach
 
-A pesquisa utilizou uma abordagem **quantitativa** com foco em:
+The research used a **quantitative** approach focused on:
 
-- **Análise de Dados**: Processamento de grandes volumes de dados de vulnerabilidades
-- **Métricas de Performance**: Medição objetiva de resultados
-- **Validação Estatística**: Testes estatísticos para validar hipóteses
-- **Benchmarking**: Comparação com sistemas existentes
+- **Data Analysis**: Processing large volumes of vulnerability data
+- **Performance Metrics**: Objective measurement of results
+- **Statistical Validation**: Statistical tests to validate hypotheses
+- **Benchmarking**: Comparison with existing systems
 
-### Coleta de Dados
+### Data Collection
 
-#### Fontes Primárias
-- **NVD (National Vulnerability Database)**: Base oficial de vulnerabilidades
-- **CVE (Common Vulnerabilities and Exposures)**: Identificadores padronizados
-- **APIs de Scanners**: Dados de scanners de vulnerabilidades
-- **Opsgenie**: Dados de incidentes e alertas
+#### Primary Sources
+- **NVD (National Vulnerability Database)**: Official vulnerability database
+- **CVE (Common Vulnerabilities and Exposures)**: Standardized identifiers
+- **Scanner APIs**: Vulnerability scanner data
+- **Opsgenie**: Incident and alert data
 
-#### Fontes Secundárias
-- **Literatura Acadêmica**: Pesquisas sobre gestão de vulnerabilidades
-- **Documentação Técnica**: Manuais e especificações
-- **Relatórios da Indústria**: Estudos de mercado e tendências
+#### Secondary Sources
+- **Academic Literature**: Research on vulnerability management
+- **Technical Documentation**: Manuals and specifications
+- **Industry Reports**: Market studies and trends
 
-### Processo de Validação
+### Validation Process
 
-#### Validação Técnica
-1. **Testes Unitários**: Validação de componentes individuais
-2. **Testes de Integração**: Validação do sistema completo
-3. **Testes de Performance**: Validação de escalabilidade
-4. **Testes de Segurança**: Validação de vulnerabilidades
+#### Technical Validation
+1. **Unit Tests**: Individual component validation
+2. **Integration Tests**: Complete system validation
+3. **Performance Tests**: Scalability validation
+4. **Security Tests**: Vulnerability validation
 
-#### Validação Funcional
-1. **Casos de Uso**: Validação de cenários reais
-2. **Feedback de Usuários**: Validação de usabilidade
-3. **Comparação com Sistemas Existentes**: Benchmarking
-4. **Métricas de Negócio**: Validação de impacto
+#### Functional Validation
+1. **Use Cases**: Real scenario validation
+2. **User Feedback**: Usability validation
+3. **Comparison with Existing Systems**: Benchmarking
+4. **Business Metrics**: Impact validation
 
-## Metodologia de Machine Learning
+## Machine Learning Methodology
 
-### Abordagem de Aprendizado Supervisionado
+### Supervised Learning Approach
 
-O sistema utiliza **aprendizado supervisionado** para classificação de vulnerabilidades:
+The system uses **supervised learning** for vulnerability classification:
 
-#### Preparação dos Dados
-- **Coleta**: Dados históricos de vulnerabilidades
-- **Limpeza**: Remoção de dados inconsistentes
-- **Normalização**: Padronização de formatos
-- **Feature Engineering**: Criação de características relevantes
+#### Data Preparation
+- **Collection**: Historical vulnerability data
+- **Cleaning**: Removal of inconsistent data
+- **Normalization**: Format standardization
+- **Feature Engineering**: Creation of relevant characteristics
 
-#### Seleção do Modelo
-- **Algoritmos Testados**: Random Forest, SVM, Neural Networks
-- **Critério de Seleção**: Acurácia, velocidade, interpretabilidade
-- **Modelo Escolhido**: Random Forest (89% de acurácia)
+#### Model Selection
+- **Tested Algorithms**: Random Forest, SVM, Neural Networks
+- **Selection Criteria**: Accuracy, speed, interpretability
+- **Chosen Model**: Random Forest (89% accuracy)
 
-#### Validação do Modelo
-- **Cross-Validation**: Validação cruzada k-fold
-- **Métricas**: Precision, Recall, F1-Score, AUC
-- **Teste em Dados Não Vistos**: Validação final
+#### Model Validation
+- **Cross-Validation**: k-fold cross-validation
+- **Metrics**: Precision, Recall, F1-Score, AUC
+- **Testing on Unseen Data**: Final validation
 
-### Pipeline de ML
+### ML Pipeline
 
 ```python
-# Exemplo do Pipeline de ML
+# ML Pipeline Example
 class VulnerabilityClassifier:
     def __init__(self):
         self.model = RandomForestClassifier(
@@ -136,102 +136,102 @@ class VulnerabilityClassifier:
         }
 ```
 
-## Metodologia de Desenvolvimento de Software
+## Software Development Methodology
 
-### Arquitetura do Sistema
+### System Architecture
 
-#### Padrão Arquitetural
-- **Microserviços**: Separação de responsabilidades
-- **API-First**: Desenvolvimento orientado a APIs
-- **Event-Driven**: Comunicação assíncrona
-- **Cloud-Native**: Preparado para nuvem
+#### Architectural Pattern
+- **Microservices**: Separation of responsibilities
+- **API-First**: API-oriented development
+- **Event-Driven**: Asynchronous communication
+- **Cloud-Native**: Cloud-ready
 
-#### Stack Tecnológico
+#### Technology Stack
 - **Backend**: Python + FastAPI
 - **Frontend**: React + TypeScript
-- **Banco de Dados**: PostgreSQL + Redis
+- **Database**: PostgreSQL + Redis
 - **ML**: scikit-learn + TensorFlow
-- **Infraestrutura**: Docker + Kubernetes
+- **Infrastructure**: Docker + Kubernetes
 
-### Processo de Desenvolvimento
+### Development Process
 
-#### Versionamento
-- **Git Flow**: Estratégia de branching
-- **Conventional Commits**: Padronização de commits
-- **Semantic Versioning**: Versionamento semântico
+#### Versioning
+- **Git Flow**: Branching strategy
+- **Conventional Commits**: Commit standardization
+- **Semantic Versioning**: Semantic versioning
 
-#### Qualidade de Código
-- **Code Review**: Revisão obrigatória de código
-- **Linting**: Análise estática de código
-- **Testing**: Testes automatizados
-- **Documentation**: Documentação inline
+#### Code Quality
+- **Code Review**: Mandatory code review
+- **Linting**: Static code analysis
+- **Testing**: Automated testing
+- **Documentation**: Inline documentation
 
 #### CI/CD
-- **Continuous Integration**: Integração contínua
-- **Continuous Deployment**: Deploy contínuo
-- **Automated Testing**: Testes automatizados
-- **Monitoring**: Monitoramento contínuo
+- **Continuous Integration**: Continuous integration
+- **Continuous Deployment**: Continuous deployment
+- **Automated Testing**: Automated testing
+- **Monitoring**: Continuous monitoring
 
-## Metodologia de Avaliação
+## Evaluation Methodology
 
-### Métricas de Sucesso
+### Success Metrics
 
-#### Métricas Técnicas
-- **Performance**: Tempo de resposta < 100ms
-- **Disponibilidade**: Uptime > 99.9%
-- **Escalabilidade**: Suporte a 1000+ usuários
-- **Segurança**: Zero vulnerabilidades críticas
+#### Technical Metrics
+- **Performance**: Response time < 100ms
+- **Availability**: Uptime > 99.9%
+- **Scalability**: Support for 1000+ users
+- **Security**: Zero critical vulnerabilities
 
-#### Métricas de Negócio
-- **Redução de Tempo**: 85% menos tempo para análise
-- **Aumento de Precisão**: 90% mais preciso que métodos manuais
-- **Diminuição de Falsos Positivos**: 70% de redução
-- **Melhoria na Resposta**: 95% mais rápido para incidentes críticos
+#### Business Metrics
+- **Time Reduction**: 85% less time for analysis
+- **Accuracy Increase**: 90% more accurate than manual methods
+- **False Positive Decrease**: 70% reduction
+- **Response Improvement**: 95% faster for critical incidents
 
-### Processo de Avaliação
+### Evaluation Process
 
-#### Avaliação Contínua
-- **Métricas em Tempo Real**: Monitoramento contínuo
-- **Feedback Loop**: Melhoria contínua baseada em feedback
-- **A/B Testing**: Testes comparativos
-- **Performance Monitoring**: Monitoramento de performance
+#### Continuous Evaluation
+- **Real-Time Metrics**: Continuous monitoring
+- **Feedback Loop**: Continuous improvement based on feedback
+- **A/B Testing**: Comparative testing
+- **Performance Monitoring**: Performance monitoring
 
-#### Avaliação Final
-- **Testes de Carga**: Validação de escalabilidade
-- **Testes de Segurança**: Validação de segurança
-- **Testes de Usabilidade**: Validação de UX
-- **Benchmarking**: Comparação com concorrentes
+#### Final Evaluation
+- **Load Tests**: Scalability validation
+- **Security Tests**: Security validation
+- **Usability Tests**: UX validation
+- **Benchmarking**: Competitor comparison
 
-## Considerações Éticas
+## Ethical Considerations
 
-### Privacidade e Segurança
-- **Anonimização**: Dados pessoais anonimizados
-- **Criptografia**: Dados sensíveis criptografados
-- **Acesso Controlado**: Controle rigoroso de acesso
-- **Auditoria**: Logs de auditoria completos
+### Privacy and Security
+- **Anonymization**: Personal data anonymized
+- **Encryption**: Sensitive data encrypted
+- **Controlled Access**: Rigorous access control
+- **Audit**: Complete audit logs
 
-### Transparência
-- **Algoritmos Explicáveis**: Modelos interpretáveis
-- **Decisões Auditáveis**: Rastreabilidade de decisões
-- **Documentação Aberta**: Documentação pública
-- **Código Aberto**: Código disponível publicamente
+### Transparency
+- **Explainable Algorithms**: Interpretable models
+- **Auditable Decisions**: Decision traceability
+- **Open Documentation**: Public documentation
+- **Open Source**: Publicly available code
 
-## Limitações e Considerações
+## Limitations and Considerations
 
-### Limitações Técnicas
-- **Dependência de APIs**: Limitações de APIs externas
-- **Qualidade dos Dados**: Dependência da qualidade dos dados de entrada
-- **Complexidade**: Sistema complexo requer manutenção especializada
+### Technical Limitations
+- **API Dependency**: External API limitations
+- **Data Quality**: Dependency on input data quality
+- **Complexity**: Complex system requires specialized maintenance
 
-### Limitações Metodológicas
-- **Escopo Limitado**: Foco em vulnerabilidades de software
-- **Dados Históricos**: Modelo treinado com dados históricos
-- **Ambiente Controlado**: Testes em ambiente controlado
+### Methodological Limitations
+- **Limited Scope**: Focus on software vulnerabilities
+- **Historical Data**: Model trained with historical data
+- **Controlled Environment**: Testing in controlled environment
 
-## Conclusão
+## Conclusion
 
-A metodologia adotada no projeto Chimera VMS combina práticas ágeis de desenvolvimento de software com rigor científico de pesquisa, resultando em um sistema robusto, escalável e cientificamente validado. A abordagem iterativa permitiu adaptação contínua aos requisitos, enquanto a validação rigorosa garantiu a qualidade e confiabilidade do sistema final.
+The methodology adopted in the Chimera VMS project combines agile software development practices with rigorous scientific research, resulting in a robust, scalable, and scientifically validated system. The iterative approach allowed continuous adaptation to requirements, while rigorous validation ensured quality and reliability of the final system.
 
 ---
 
-**Próxima Seção**: [Implementação](/docs/implementacao/)
+**Next Section**: [Implementation](/docs/implementacao/)

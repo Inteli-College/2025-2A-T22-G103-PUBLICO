@@ -2,132 +2,132 @@
 sidebar_position: 3
 ---
 
-# Machine Learning em Segurança Cibernética
+# Machine Learning in Cybersecurity
 
-## 1. Introdução ao Machine Learning
+## 1. Introduction to Machine Learning
 
-### 1.1 Definição e Conceitos Fundamentais
+### 1.1 Definition and Fundamental Concepts
 
-**Machine Learning** (ML) é um subcampo da inteligência artificial que permite aos sistemas aprenderem e melhorarem automaticamente através da experiência, sem serem explicitamente programados para cada tarefa específica. Em segurança cibernética, o ML tem se tornado uma ferramenta essencial para detectar, classificar e responder a ameaças de forma proativa.
+**Machine Learning** (ML) is a subfield of artificial intelligence that allows systems to learn and improve automatically through experience, without being explicitly programmed for each specific task. In cybersecurity, ML has become an essential tool for detecting, classifying, and responding to threats proactively.
 
-### 1.2 Tipos de Aprendizado
+### 1.2 Types of Learning
 
-#### **Aprendizado Supervisionado (Supervised Learning)**
-- **Definição**: Algoritmos que aprendem a partir de dados rotulados
-- **Aplicação**: Classificação de vulnerabilidades, detecção de malware
-- **Exemplos**: Random Forest, Support Vector Machines, Neural Networks
+#### **Supervised Learning**
+- **Definition**: Algorithms that learn from labeled data
+- **Application**: Vulnerability classification, malware detection
+- **Examples**: Random Forest, Support Vector Machines, Neural Networks
 
-#### **Aprendizado Não Supervisionado (Unsupervised Learning)**
-- **Definição**: Algoritmos que encontram padrões em dados não rotulados
-- **Aplicação**: Detecção de anomalias, clustering de ataques
-- **Exemplos**: K-Means, DBSCAN, Autoencoders
+#### **Unsupervised Learning**
+- **Definition**: Algorithms that find patterns in unlabeled data
+- **Application**: Anomaly detection, attack clustering
+- **Examples**: K-Means, DBSCAN, Autoencoders
 
-#### **Aprendizado por Reforço (Reinforcement Learning)**
-- **Definição**: Algoritmos que aprendem através de interação com ambiente
-- **Aplicação**: Sistemas de resposta automática, honeypots adaptativos
-- **Exemplos**: Q-Learning, Deep Q-Networks
+#### **Reinforcement Learning**
+- **Definition**: Algorithms that learn through interaction with environment
+- **Application**: Automatic response systems, adaptive honeypots
+- **Examples**: Q-Learning, Deep Q-Networks
 
-### 1.3 Pipeline de Machine Learning
+### 1.3 Machine Learning Pipeline
 
-#### **1. Coleta de Dados**
-- Identificação de fontes relevantes
-- Coleta de dados históricos e em tempo real
-- Garantia de qualidade e completude
+#### **1. Data Collection**
+- Identification of relevant sources
+- Collection of historical and real-time data
+- Quality and completeness assurance
 
-#### **2. Pré-processamento**
-- Limpeza de dados
-- Normalização e padronização
-- Tratamento de valores ausentes
+#### **2. Preprocessing**
+- Data cleaning
+- Normalization and standardization
+- Missing value treatment
 
 #### **3. Feature Engineering**
-- Extração de características relevantes
-- Seleção de features
-- Criação de features derivadas
+- Extraction of relevant characteristics
+- Feature selection
+- Creation of derived features
 
-#### **4. Treinamento do Modelo**
-- Divisão dos dados (train/validation/test)
-- Seleção do algoritmo
-- Otimização de hiperparâmetros
+#### **4. Model Training**
+- Data division (train/validation/test)
+- Algorithm selection
+- Hyperparameter optimization
 
-#### **5. Avaliação e Validação**
-- Métricas de performance
-- Validação cruzada
-- Teste com dados não vistos
+#### **5. Evaluation and Validation**
+- Performance metrics
+- Cross-validation
+- Testing with unseen data
 
-#### **6. Deploy e Monitoramento**
-- Implementação em produção
-- Monitoramento de performance
-- Retreinamento periódico
+#### **6. Deploy and Monitoring**
+- Production implementation
+- Performance monitoring
+- Periodic retraining
 
-## 2. Aplicações em Segurança Cibernética
+## 2. Applications in Cybersecurity
 
-### 2.1 Detecção de Malware
+### 2.1 Malware Detection
 
-#### **Análise Estática**
-- **Características**: Análise de código sem execução
-- **Features**: Strings, imports, seções PE, opcodes
-- **Algoritmos**: Random Forest, Gradient Boosting, Neural Networks
-- **Vantagens**: Seguro, rápido, escalável
-- **Desvantagens**: Pode ser evadido por ofuscação
+#### **Static Analysis**
+- **Characteristics**: Code analysis without execution
+- **Features**: Strings, imports, PE sections, opcodes
+- **Algorithms**: Random Forest, Gradient Boosting, Neural Networks
+- **Advantages**: Safe, fast, scalable
+- **Disadvantages**: Can be evaded by obfuscation
 
-#### **Análise Dinâmica**
-- **Características**: Análise durante execução
+#### **Dynamic Analysis**
+- **Characteristics**: Analysis during execution
 - **Features**: System calls, network traffic, file operations
-- **Algoritmos**: LSTM, CNN, Isolation Forest
-- **Vantagens**: Detecta comportamento malicioso
-- **Desvantagens**: Mais lento, requer sandbox
+- **Algorithms**: LSTM, CNN, Isolation Forest
+- **Advantages**: Detects malicious behavior
+- **Disadvantages**: Slower, requires sandbox
 
-### 2.2 Detecção de Intrusão
+### 2.2 Intrusion Detection
 
 #### **Network Intrusion Detection**
-- **Dados**: Tráfego de rede, logs de firewall
-- **Features**: Portas, protocolos, tamanho de pacotes, frequência
-- **Algoritmos**: SVM, Random Forest, Deep Learning
-- **Desafios**: Volume alto de dados, evolução de ataques
+- **Data**: Network traffic, firewall logs
+- **Features**: Ports, protocols, packet size, frequency
+- **Algorithms**: SVM, Random Forest, Deep Learning
+- **Challenges**: High data volume, attack evolution
 
 #### **Host Intrusion Detection**
-- **Dados**: Logs do sistema, processos, arquivos
-- **Features**: System calls, uso de recursos, modificações
-- **Algoritmos**: Isolation Forest, One-Class SVM
-- **Desafios**: Ruído nos dados, falsos positivos
+- **Data**: System logs, processes, files
+- **Features**: System calls, resource usage, modifications
+- **Algorithms**: Isolation Forest, One-Class SVM
+- **Challenges**: Data noise, false positives
 
-### 2.3 Análise de Vulnerabilidades
+### 2.3 Vulnerability Analysis
 
-#### **Classificação de Severidade**
-- **Objetivo**: Classificar vulnerabilidades por nível de risco
-- **Features**: CVSS scores, descrição, produtos afetados
-- **Algoritmos**: XGBoost, Random Forest, Neural Networks
-- **Métricas**: Accuracy, Precision, Recall, F1-Score
+#### **Severity Classification**
+- **Objective**: Classify vulnerabilities by risk level
+- **Features**: CVSS scores, description, affected products
+- **Algorithms**: XGBoost, Random Forest, Neural Networks
+- **Metrics**: Accuracy, Precision, Recall, F1-Score
 
-#### **Predição de Exploitabilidade**
-- **Objetivo**: Prever se vulnerabilidade será explorada
+#### **Exploitability Prediction**
+- **Objective**: Predict if vulnerability will be exploited
 - **Features**: CVE metadata, exploit availability, patch status
-- **Algoritmos**: Logistic Regression, Gradient Boosting
-- **Aplicação**: Priorização de patches
+- **Algorithms**: Logistic Regression, Gradient Boosting
+- **Application**: Patch prioritization
 
-### 2.4 Análise de Comportamento
+### 2.4 Behavior Analysis
 
 #### **User and Entity Behavior Analytics (UEBA)**
-- **Objetivo**: Detectar comportamento anômalo de usuários
+- **Objective**: Detect anomalous user behavior
 - **Features**: Login patterns, access patterns, resource usage
-- **Algoritmos**: Isolation Forest, LSTM, Autoencoders
-- **Desafios**: Definir baseline normal, adaptação a mudanças
+- **Algorithms**: Isolation Forest, LSTM, Autoencoders
+- **Challenges**: Define normal baseline, adapt to changes
 
 #### **Threat Hunting**
-- **Objetivo**: Identificar ameaças avançadas
-- **Features**: Logs de múltiplas fontes, network flows
-- **Algoritmos**: Graph Neural Networks, Clustering
-- **Desafios**: Dados dispersos, ataques sofisticados
+- **Objective**: Identify advanced threats
+- **Features**: Logs from multiple sources, network flows
+- **Algorithms**: Graph Neural Networks, Clustering
+- **Challenges**: Scattered data, sophisticated attacks
 
-## 3. Algoritmos Específicos para Segurança
+## 3. Specific Algorithms for Security
 
-### 3.1 Algoritmos de Classificação
+### 3.1 Classification Algorithms
 
 #### **Random Forest**
-- **Princípio**: Ensemble de árvores de decisão
-- **Vantagens**: Robusto a overfitting, feature importance
-- **Aplicação**: Classificação de malware, detecção de intrusão
-- **Hiperparâmetros**: n_estimators, max_depth, min_samples_split
+- **Principle**: Ensemble of decision trees
+- **Advantages**: Robust to overfitting, feature importance
+- **Application**: Malware classification, intrusion detection
+- **Hyperparameters**: n_estimators, max_depth, min_samples_split
 
 ```python
 from sklearn.ensemble import RandomForestClassifier
@@ -142,10 +142,10 @@ rf.fit(X_train, y_train)
 ```
 
 #### **XGBoost**
-- **Princípio**: Gradient boosting otimizado
-- **Vantagens**: Alta performance, eficiência computacional
-- **Aplicação**: Classificação de vulnerabilidades, ranking de ameaças
-- **Hiperparâmetros**: learning_rate, max_depth, subsample
+- **Principle**: Optimized gradient boosting
+- **Advantages**: High performance, computational efficiency
+- **Application**: Vulnerability classification, threat ranking
+- **Hyperparameters**: learning_rate, max_depth, subsample
 
 ```python
 import xgboost as xgb
@@ -161,18 +161,18 @@ xgb_model.fit(X_train, y_train)
 ```
 
 #### **Support Vector Machines (SVM)**
-- **Princípio**: Encontra hiperplano de separação ótimo
-- **Vantagens**: Eficaz em espaços de alta dimensão
-- **Aplicação**: Detecção de spam, classificação de tráfego
-- **Hiperparâmetros**: C, gamma, kernel
+- **Principle**: Finds optimal separation hyperplane
+- **Advantages**: Effective in high-dimensional spaces
+- **Application**: Spam detection, traffic classification
+- **Hyperparameters**: C, gamma, kernel
 
-### 3.2 Algoritmos de Detecção de Anomalias
+### 3.2 Anomaly Detection Algorithms
 
 #### **Isolation Forest**
-- **Princípio**: Isola anomalias em árvores de isolamento
-- **Vantagens**: Não supervisionado, eficiente
-- **Aplicação**: Detecção de intrusão, fraud detection
-- **Hiperparâmetros**: n_estimators, contamination
+- **Principle**: Isolates anomalies in isolation trees
+- **Advantages**: Unsupervised, efficient
+- **Application**: Intrusion detection, fraud detection
+- **Hyperparameters**: n_estimators, contamination
 
 ```python
 from sklearn.ensemble import IsolationForest
@@ -187,17 +187,17 @@ anomalies = iso_forest.predict(X_test)
 ```
 
 #### **One-Class SVM**
-- **Princípio**: Encontra fronteira que engloba dados normais
-- **Vantagens**: Eficaz para dados não balanceados
-- **Aplicação**: Detecção de outliers, anomaly detection
-- **Hiperparâmetros**: nu, gamma, kernel
+- **Principle**: Finds boundary that encompasses normal data
+- **Advantages**: Effective for unbalanced data
+- **Application**: Outlier detection, anomaly detection
+- **Hyperparameters**: nu, gamma, kernel
 
 ### 3.3 Deep Learning
 
 #### **Convolutional Neural Networks (CNN)**
-- **Aplicação**: Análise de imagens de malware, análise de tráfego
-- **Vantagens**: Extração automática de features
-- **Arquitetura**: Convolutional layers, pooling, fully connected
+- **Application**: Malware image analysis, traffic analysis
+- **Advantages**: Automatic feature extraction
+- **Architecture**: Convolutional layers, pooling, fully connected
 
 ```python
 import tensorflow as tf
@@ -214,9 +214,9 @@ model = tf.keras.Sequential([
 ```
 
 #### **Long Short-Term Memory (LSTM)**
-- **Aplicação**: Análise de sequências temporais, logs
-- **Vantagens**: Captura dependências temporais
-- **Arquitetura**: LSTM cells, dropout, dense layers
+- **Application**: Temporal sequence analysis, logs
+- **Advantages**: Captures temporal dependencies
+- **Architecture**: LSTM cells, dropout, dense layers
 
 ```python
 model = tf.keras.Sequential([
@@ -229,14 +229,14 @@ model = tf.keras.Sequential([
 ])
 ```
 
-## 4. Feature Engineering para Segurança
+## 4. Feature Engineering for Security
 
-### 4.1 Features Textuais
+### 4.1 Textual Features
 
 #### **TF-IDF (Term Frequency-Inverse Document Frequency)**
-- **Aplicação**: Análise de descrições de vulnerabilidades
-- **Vantagens**: Captura importância de termos
-- **Implementação**:
+- **Application**: Vulnerability description analysis
+- **Advantages**: Captures term importance
+- **Implementation**:
 
 ```python
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -250,9 +250,9 @@ X_tfidf = vectorizer.fit_transform(descriptions)
 ```
 
 #### **Word Embeddings**
-- **Aplicação**: Representação semântica de texto
-- **Algoritmos**: Word2Vec, GloVe, FastText
-- **Vantagens**: Captura relações semânticas
+- **Application**: Semantic text representation
+- **Algorithms**: Word2Vec, GloVe, FastText
+- **Advantages**: Captures semantic relationships
 
 ```python
 from gensim.models import Word2Vec
@@ -266,12 +266,12 @@ model = Word2Vec(
 )
 ```
 
-### 4.2 Features Numéricas
+### 4.2 Numerical Features
 
-#### **Normalização**
-- **Min-Max Scaling**: Escala para [0,1]
-- **Z-Score Normalization**: Média 0, desvio 1
-- **Robust Scaling**: Usa mediana e IQR
+#### **Normalization**
+- **Min-Max Scaling**: Scale to [0,1]
+- **Z-Score Normalization**: Mean 0, deviation 1
+- **Robust Scaling**: Uses median and IQR
 
 ```python
 from sklearn.preprocessing import StandardScaler
@@ -280,18 +280,18 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 ```
 
-#### **Features de Tempo**
-- **Timestamp**: Data e hora do evento
-- **Duração**: Tempo entre eventos
-- **Frequência**: Número de eventos por período
-- **Sazonalidade**: Padrões temporais
+#### **Time Features**
+- **Timestamp**: Date and time of event
+- **Duration**: Time between events
+- **Frequency**: Number of events per period
+- **Seasonality**: Temporal patterns
 
-### 4.3 Features Categóricas
+### 4.3 Categorical Features
 
 #### **One-Hot Encoding**
-- **Aplicação**: Variáveis categóricas sem ordem
-- **Vantagens**: Preserva informação categórica
-- **Desvantagens**: Dimensionalidade alta
+- **Application**: Categorical variables without order
+- **Advantages**: Preserves categorical information
+- **Disadvantages**: High dimensionality
 
 ```python
 from sklearn.preprocessing import OneHotEncoder
@@ -301,52 +301,52 @@ X_encoded = encoder.fit_transform(X_categorical)
 ```
 
 #### **Label Encoding**
-- **Aplicação**: Variáveis categóricas com ordem
-- **Vantagens**: Mantém dimensionalidade baixa
-- **Desvantagens**: Pode introduzir ordem artificial
+- **Application**: Categorical variables with order
+- **Advantages**: Maintains low dimensionality
+- **Disadvantages**: May introduce artificial order
 
-## 5. Avaliação e Métricas
+## 5. Evaluation and Metrics
 
-### 5.1 Métricas de Classificação
+### 5.1 Classification Metrics
 
-#### **Accuracy (Acurácia)**
-- **Definição**: Proporção de predições corretas
-- **Fórmula**: (TP + TN) / (TP + TN + FP + FN)
-- **Uso**: Quando classes estão balanceadas
+#### **Accuracy**
+- **Definition**: Proportion of correct predictions
+- **Formula**: (TP + TN) / (TP + TN + FP + FN)
+- **Use**: When classes are balanced
 
-#### **Precision (Precisão)**
-- **Definição**: Proporção de predições positivas corretas
-- **Fórmula**: TP / (TP + FP)
-- **Uso**: Quando falsos positivos são custosos
+#### **Precision**
+- **Definition**: Proportion of correct positive predictions
+- **Formula**: TP / (TP + FP)
+- **Use**: When false positives are costly
 
-#### **Recall (Sensibilidade)**
-- **Definição**: Proporção de positivos reais detectados
-- **Fórmula**: TP / (TP + FN)
-- **Uso**: Quando falsos negativos são custosos
+#### **Recall (Sensitivity)**
+- **Definition**: Proportion of real positives detected
+- **Formula**: TP / (TP + FN)
+- **Use**: When false negatives are costly
 
 #### **F1-Score**
-- **Definição**: Média harmônica de precision e recall
-- **Fórmula**: 2 * (Precision * Recall) / (Precision + Recall)
-- **Uso**: Balanceamento entre precision e recall
+- **Definition**: Harmonic mean of precision and recall
+- **Formula**: 2 * (Precision * Recall) / (Precision + Recall)
+- **Use**: Balance between precision and recall
 
-### 5.2 Métricas para Dados Desbalanceados
+### 5.2 Metrics for Unbalanced Data
 
 #### **AUC-ROC (Area Under ROC Curve)**
-- **Definição**: Área sob curva ROC
-- **Uso**: Comparação de modelos
-- **Interpretação**: 0.5 = aleatório, 1.0 = perfeito
+- **Definition**: Area under ROC curve
+- **Use**: Model comparison
+- **Interpretation**: 0.5 = random, 1.0 = perfect
 
 #### **AUC-PR (Area Under Precision-Recall Curve)**
-- **Definição**: Área sob curva Precision-Recall
-- **Uso**: Dados altamente desbalanceados
-- **Vantagem**: Mais sensível a mudanças na classe minoritária
+- **Definition**: Area under Precision-Recall curve
+- **Use**: Highly unbalanced data
+- **Advantage**: More sensitive to changes in minority class
 
-### 5.3 Validação Cruzada
+### 5.3 Cross Validation
 
 #### **K-Fold Cross Validation**
-- **Princípio**: Divide dados em k folds
-- **Uso**: Estimativa robusta de performance
-- **Implementação**:
+- **Principle**: Divides data into k folds
+- **Use**: Robust performance estimation
+- **Implementation**:
 
 ```python
 from sklearn.model_selection import cross_val_score
@@ -359,147 +359,147 @@ scores = cross_val_score(
 ```
 
 #### **Stratified K-Fold**
-- **Princípio**: Mantém proporção de classes
-- **Uso**: Dados desbalanceados
-- **Vantagem**: Garante representatividade
+- **Principle**: Maintains class proportion
+- **Use**: Unbalanced data
+- **Advantage**: Ensures representativeness
 
-## 6. Desafios e Limitações
+## 6. Challenges and Limitations
 
-### 6.1 Desafios de Dados
+### 6.1 Data Challenges
 
-#### **Qualidade dos Dados**
-- **Ruído**: Dados incorretos ou inconsistentes
-- **Valores Ausentes**: Dados incompletos
-- **Bias**: Viés nos dados de treinamento
-- **Solução**: Limpeza rigorosa, validação cruzada
+#### **Data Quality**
+- **Noise**: Incorrect or inconsistent data
+- **Missing Values**: Incomplete data
+- **Bias**: Bias in training data
+- **Solution**: Rigorous cleaning, cross-validation
 
-#### **Dados Desbalanceados**
-- **Problema**: Classes minoritárias sub-representadas
-- **Impacto**: Modelo tende à classe majoritária
-- **Soluções**: SMOTE, undersampling, class weights
+#### **Unbalanced Data**
+- **Problem**: Minority classes under-represented
+- **Impact**: Model tends to majority class
+- **Solutions**: SMOTE, undersampling, class weights
 
-#### **Evolução dos Dados**
-- **Concept Drift**: Distribuição muda ao longo do tempo
-- **Data Drift**: Features mudam de distribuição
-- **Solução**: Monitoramento contínuo, retreinamento
+#### **Data Evolution**
+- **Concept Drift**: Distribution changes over time
+- **Data Drift**: Features change distribution
+- **Solution**: Continuous monitoring, retraining
 
-### 6.2 Desafios Técnicos
+### 6.2 Technical Challenges
 
 #### **Overfitting**
-- **Definição**: Modelo memoriza dados de treinamento
-- **Sintomas**: Alta performance no treino, baixa no teste
-- **Soluções**: Regularização, dropout, early stopping
+- **Definition**: Model memorizes training data
+- **Symptoms**: High training performance, low test performance
+- **Solutions**: Regularization, dropout, early stopping
 
-#### **Interpretabilidade**
-- **Problema**: Modelos complexos são "caixa preta"
-- **Importância**: Compliance, debugging, confiança
-- **Soluções**: SHAP, LIME, feature importance
+#### **Interpretability**
+- **Problem**: Complex models are "black box"
+- **Importance**: Compliance, debugging, trust
+- **Solutions**: SHAP, LIME, feature importance
 
-#### **Escalabilidade**
-- **Problema**: Volume alto de dados
-- **Desafios**: Tempo de treinamento, memória
-- **Soluções**: Distributed computing, sampling, online learning
+#### **Scalability**
+- **Problem**: High data volume
+- **Challenges**: Training time, memory
+- **Solutions**: Distributed computing, sampling, online learning
 
-### 6.3 Desafios de Segurança
+### 6.3 Security Challenges
 
-#### **Ataques Adversariais**
-- **Definição**: Ataques especificamente contra ML
-- **Tipos**: Evasion, poisoning, extraction
-- **Exemplos**: Adversarial examples, backdoor attacks
-- **Defesas**: Adversarial training, robust optimization
+#### **Adversarial Attacks**
+- **Definition**: Attacks specifically against ML
+- **Types**: Evasion, poisoning, extraction
+- **Examples**: Adversarial examples, backdoor attacks
+- **Defenses**: Adversarial training, robust optimization
 
-#### **Privacidade**
-- **Problema**: Dados sensíveis em modelos
-- **Riscos**: Membership inference, model inversion
-- **Soluções**: Differential privacy, federated learning
+#### **Privacy**
+- **Problem**: Sensitive data in models
+- **Risks**: Membership inference, model inversion
+- **Solutions**: Differential privacy, federated learning
 
-## 7. Boas Práticas
+## 7. Best Practices
 
-### 7.1 Desenvolvimento de Modelos
+### 7.1 Model Development
 
-#### **Validação Rigorosa**
-- **Split temporal**: Treino em dados antigos, teste em recentes
-- **Validação cruzada**: Múltiplas avaliações
-- **Teste A/B**: Comparação com baseline
-- **Métricas múltiplas**: Não apenas accuracy
+#### **Rigorous Validation**
+- **Temporal split**: Train on old data, test on recent
+- **Cross-validation**: Multiple evaluations
+- **A/B testing**: Comparison with baseline
+- **Multiple metrics**: Not just accuracy
 
-#### **Monitoramento Contínuo**
-- **Performance**: Acompanhar métricas ao longo do tempo
-- **Data drift**: Detectar mudanças na distribuição
-- **Model drift**: Detectar degradação do modelo
-- **Alertas**: Notificações automáticas de problemas
+#### **Continuous Monitoring**
+- **Performance**: Track metrics over time
+- **Data drift**: Detect distribution changes
+- **Model drift**: Detect model degradation
+- **Alerts**: Automatic problem notifications
 
-### 7.2 Deploy e Produção
+### 7.2 Deploy and Production
 
-#### **Versionamento**
-- **Modelos**: Versionar modelos treinados
-- **Dados**: Versionar datasets de treinamento
-- **Código**: Versionar pipelines de ML
-- **Ferramentas**: MLflow, DVC, Weights & Biases
+#### **Versioning**
+- **Models**: Version trained models
+- **Data**: Version training datasets
+- **Code**: Version ML pipelines
+- **Tools**: MLflow, DVC, Weights & Biases
 
-#### **CI/CD para ML**
-- **Testes automatizados**: Validação de modelos
-- **Deploy gradual**: Canary releases
-- **Rollback**: Capacidade de reverter
-- **Monitoramento**: Observabilidade completa
+#### **CI/CD for ML**
+- **Automated testing**: Model validation
+- **Gradual deploy**: Canary releases
+- **Rollback**: Ability to revert
+- **Monitoring**: Complete observability
 
-### 7.3 Ética e Responsabilidade
+### 7.3 Ethics and Responsibility
 
-#### **Bias e Fairness**
-- **Identificação**: Detectar vieses nos modelos
-- **Mitigação**: Técnicas de debiasing
-- **Avaliação**: Métricas de fairness
-- **Transparência**: Documentar limitações
+#### **Bias and Fairness**
+- **Identification**: Detect biases in models
+- **Mitigation**: Debiasing techniques
+- **Evaluation**: Fairness metrics
+- **Transparency**: Document limitations
 
-#### **Transparência**
-- **Explicabilidade**: Capacidade de explicar decisões
-- **Documentação**: Documentar processo e limitações
-- **Auditoria**: Processos de revisão
-- **Governança**: Políticas e procedimentos
+#### **Transparency**
+- **Explainability**: Ability to explain decisions
+- **Documentation**: Document process and limitations
+- **Audit**: Review processes
+- **Governance**: Policies and procedures
 
-## 8. Futuro do ML em Segurança
+## 8. Future of ML in Security
 
-### 8.1 Tendências Emergentes
+### 8.1 Emerging Trends
 
 #### **Federated Learning**
-- **Definição**: Treinamento distribuído sem compartilhar dados
-- **Aplicação**: Colaboração entre organizações
-- **Vantagens**: Privacidade, escalabilidade
-- **Desafios**: Coordenação, heterogeneidade
+- **Definition**: Distributed training without sharing data
+- **Application**: Collaboration between organizations
+- **Advantages**: Privacy, scalability
+- **Challenges**: Coordination, heterogeneity
 
 #### **AutoML**
-- **Definição**: Automação do pipeline de ML
-- **Aplicação**: Democratização do ML
-- **Vantagens**: Redução de tempo, expertise
-- **Limitações**: Menos controle, interpretabilidade
+- **Definition**: ML pipeline automation
+- **Application**: ML democratization
+- **Advantages**: Time reduction, expertise
+- **Limitations**: Less control, interpretability
 
 #### **Graph Neural Networks**
-- **Definição**: Redes neurais para dados em grafos
-- **Aplicação**: Análise de relacionamentos, threat hunting
-- **Vantagens**: Captura dependências complexas
-- **Desafios**: Escalabilidade, interpretabilidade
+- **Definition**: Neural networks for graph data
+- **Application**: Relationship analysis, threat hunting
+- **Advantages**: Captures complex dependencies
+- **Challenges**: Scalability, interpretability
 
-### 8.2 Desafios Futuros
+### 8.2 Future Challenges
 
-#### **Ataques Mais Sofisticados**
-- **Evolução**: Ataques adaptativos
-- **Defesas**: Pesquisa em robustez
-- **Colaboração**: Comunidade de segurança
+#### **More Sophisticated Attacks**
+- **Evolution**: Adaptive attacks
+- **Defenses**: Robustness research
+- **Collaboration**: Security community
 
-#### **Regulamentação**
-- **GDPR**: Direito à explicação
-- **AI Act**: Regulamentação de IA
-- **Compliance**: Adaptação a regulamentações
+#### **Regulation**
+- **GDPR**: Right to explanation
+- **AI Act**: AI regulation
+- **Compliance**: Adaptation to regulations
 
-## 9. Conclusão
+## 9. Conclusion
 
-O Machine Learning representa uma revolução na segurança cibernética, oferecendo capacidades de detecção, classificação e resposta que seriam impossíveis com métodos tradicionais. No entanto, seu sucesso depende de uma implementação cuidadosa, considerando os desafios de dados, técnicos e de segurança.
+Machine Learning represents a revolution in cybersecurity, offering detection, classification, and response capabilities that would be impossible with traditional methods. However, its success depends on careful implementation, considering data, technical, and security challenges.
 
-O projeto Chimera VMS demonstra como ML pode ser aplicado efetivamente para classificação de vulnerabilidades, combinando técnicas avançadas com práticas robustas de engenharia de software.
+The Chimera VMS project demonstrates how ML can be effectively applied for vulnerability classification, combining advanced techniques with robust software engineering practices.
 
 ---
 
-## Referências
+## References
 
 1. **Goodfellow, I., Bengio, Y., & Courville, A.** (2016). Deep Learning. MIT Press.
 2. **Hastie, T., Tibshirani, R., & Friedman, J.** (2009). The Elements of Statistical Learning. Springer.
@@ -512,4 +512,4 @@ O projeto Chimera VMS demonstra como ML pode ser aplicado efetivamente para clas
 
 ---
 
-**Próximo Capítulo**: [Automação](/docs/fundamentacao/automation)
+**Next Chapter**: [Automation](/docs/fundamentacao/automation)

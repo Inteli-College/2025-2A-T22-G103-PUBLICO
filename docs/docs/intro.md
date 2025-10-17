@@ -2,85 +2,85 @@
 sidebar_position: 1
 ---
 
-# Chimera VMS - Introdução
+# Chimera VMS - Introduction
 
-## Visão Geral do Projeto
+## Project Overview
 
-O **Chimera VMS** (Vulnerability Management System) é um sistema inovador de gerenciamento de vulnerabilidades que combina automação, inteligência artificial e monitoramento contínuo para transformar a abordagem tradicional de segurança cibernética.
+**Chimera VMS** (Vulnerability Management System) is an innovative vulnerability management system that combines automation, artificial intelligence, and continuous monitoring to transform the traditional approach to cybersecurity.
 
-## Problema Identificado
+## Identified Problem
 
-Atualmente, as organizações enfrentam desafios significativos no gerenciamento de vulnerabilidades:
+Currently, organizations face significant challenges in vulnerability management:
 
-- **Processos Manuais**: Análise manual de relatórios de vulnerabilidades consome tempo valioso da equipe de segurança
-- **Falsos Positivos**: Alto volume de alertas irrelevantes que sobrecarregam os analistas
-- **Resposta Reativa**: Abordagem reativa em vez de proativa para identificação de ameaças
-- **Falta de Centralização**: Dados dispersos em diferentes ferramentas e formatos
+- **Manual Processes**: Manual analysis of vulnerability reports consumes valuable security team time
+- **False Positives**: High volume of irrelevant alerts that overwhelm analysts
+- **Reactive Response**: Reactive instead of proactive approach to threat identification
+- **Lack of Centralization**: Data scattered across different tools and formats
 
-## Solução Proposta
+## Proposed Solution
 
-O Chimera VMS oferece uma solução integrada que:
+Chimera VMS offers an integrated solution that:
 
-### 🔄 **Automação Completa**
-- Coleta automatizada de dados de vulnerabilidades
-- Normalização e estruturação de informações
-- Execução programada de scans de segurança
+### 🔄 **Complete Automation**
+- Automated collection of vulnerability data
+- Normalization and structuring of information
+- Scheduled execution of security scans
 
-### 🤖 **Inteligência Artificial**
-- Modelo de Machine Learning para classificação de vulnerabilidades
-- Redução significativa de falsos positivos
-- Aprendizado contínuo baseado em feedback
+### 🤖 **Artificial Intelligence**
+- Machine Learning model for vulnerability classification
+- Significant reduction in false positives
+- Continuous learning based on feedback
 
-### 📊 **Monitoramento Inteligente**
-- Dashboard em tempo real
-- Alertas via Opsgenie para vulnerabilidades críticas
-- Métricas de performance e eficácia
+### 📊 **Intelligent Monitoring**
+- Real-time dashboard
+- Opsgenie alerts for critical vulnerabilities
+- Performance and effectiveness metrics
 
-## Objetivos do Projeto
+## Project Objectives
 
-### Objetivo Geral
-Desenvolver um pipeline automatizado de gerenciamento de vulnerabilidades que transforme o processo de manual e reativo para automatizado e proativo.
+### General Objective
+Develop an automated vulnerability management pipeline that transforms the process from manual and reactive to automated and proactive.
 
-### Objetivos Específicos
-- ✅ Automatizar a coleta e normalização de dados de vulnerabilidades
-- ✅ Implementar sistema de classificação inteligente com ML
-- ✅ Integrar alertas automáticos via Opsgenie
-- ✅ Desenvolver dashboard de visualização e monitoramento
-- ✅ Validar eficácia através de métricas quantitativas
+### Specific Objectives
+- ✅ Automate collection and normalization of vulnerability data
+- ✅ Implement intelligent classification system with ML
+- ✅ Integrate automatic alerts via Opsgenie
+- ✅ Develop visualization and monitoring dashboard
+- ✅ Validate effectiveness through quantitative metrics
 
-## Metodologia
+## Methodology
 
-O projeto utiliza metodologia ágil com **5 sprints** de 2 semanas cada:
+The project uses agile methodology with **5 sprints** of 2 weeks each:
 
-1. **Sprint 1**: Planejamento e Preparação
-2. **Sprint 2**: Automação e Normalização
-3. **Sprint 3**: Estruturação e Inserção
-4. **Sprint 4**: Inteligência e Integração
-5. **Sprint 5**: Visualização e Validação
+1. **Sprint 1**: Planning and Preparation
+2. **Sprint 2**: Automation and Normalization
+3. **Sprint 3**: Structuring and Insertion
+4. **Sprint 4**: Intelligence and Integration
+5. **Sprint 5**: Visualization and Validation
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - **Backend**: Python, FastAPI
 - **Machine Learning**: Scikit-learn, TensorFlow
-- **Banco de Dados**: PostgreSQL
-- **Monitoramento**: Opsgenie API
+- **Database**: PostgreSQL
+- **Monitoring**: Opsgenie API
 - **Frontend**: React, TypeScript
-- **Infraestrutura**: Docker, Kubernetes
+- **Infrastructure**: Docker, Kubernetes
 
-## Equipe do Projeto
+## Project Team
 
-| Nome | Função | Responsabilidades |
-|------|--------|-------------------|
-| **Esther Hikari** | Scrum Master & Developer | Desenvolvimento completo, gestão de sprints |
-| **Erik Oliveira** | Product Owner | Definição de requisitos, validação técnica |
-| **Rodolfo Goya** | Academic Advisor | Orientação acadêmica, revisão de documentação |
+| Name | Role | Responsibilities |
+|------|------|-----------------|
+| **Esther Hikari** | Scrum Master & Developer | Complete development, sprint management |
+| **Erik Oliveira** | Product Owner | Requirements definition, technical validation |
+| **Rodolfo Goya** | Academic Advisor | Academic guidance, documentation review |
 
-## Próximos Passos
+## Next Steps
 
-1. 📖 Explore a [Fundamentação Teórica](/docs/fundamentacao/cybersecurity)
-2. 🚀 Acompanhe o [Progresso das Sprints](/docs/sprints/sprint-1/objetivos)
-3. 📊 Veja os [Resultados e Métricas](/docs/resultados/analise-vulnerabilidades)
+1. 📖 Explore the [Theoretical Foundation](/docs/fundamentacao/cybersecurity)
+2. 🚀 Follow the [Sprint Progress](/docs/sprints/sprint-1/objetivos)
+3. 📊 See the [Results and Metrics](/docs/resultados/analise-vulnerabilidades)
 
 ---
 
-*Este projeto representa uma contribuição significativa para o campo de segurança cibernética, combinando práticas acadêmicas rigorosas com aplicação prática em ambiente corporativo.*
+*This project represents a significant contribution to the cybersecurity field, combining rigorous academic practices with practical application in a corporate environment.*

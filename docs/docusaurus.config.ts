@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Chimera VMS - TCC Cybersecurity',
-  tagline: 'Sistema de Gerenciamento de Vulnerabilidades com Inteligência Artificial',
+  tagline: 'Vulnerability Management System with Artificial Intelligence',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -31,8 +31,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'pt-BR',
-    locales: ['pt-BR'],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
@@ -105,15 +105,19 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Documentação',
+          title: 'Documentation',
           items: [
             {
-              label: 'Introdução',
+              label: 'Introduction',
               to: '/docs/intro',
             },
             {
-              label: 'Fundamentação Teórica',
+              label: 'Module 13 - Chimera VMS',
               to: '/docs/fundamentacao/cybersecurity',
+            },
+            {
+              label: 'Module 14 - Future Work',
+              to: '/docs/modulo14/intro',
             },
           ],
         },
@@ -125,13 +129,13 @@ const config: Config = {
               to: '/docs/sprints/sprint-1/objetivos',
             },
             {
-              label: 'Progresso',
+              label: 'Progress',
               to: '/docs/sprints',
             },
           ],
         },
         {
-          title: 'Projeto',
+          title: 'Project',
           items: [
             {
               label: 'GitHub',

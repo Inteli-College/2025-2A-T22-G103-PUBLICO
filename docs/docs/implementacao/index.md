@@ -2,17 +2,17 @@
 sidebar_position: 1
 ---
 
-# Implementação
+# Implementation
 
-## Visão Geral
+## Overview
 
-Este documento detalha a implementação técnica do **Chimera VMS**, apresentando a arquitetura do sistema, tecnologias utilizadas, componentes principais e decisões de design que levaram ao desenvolvimento de um sistema robusto e escalável de gestão de vulnerabilidades.
+This document details the technical implementation of **Chimera VMS**, presenting the system architecture, technologies used, main components, and design decisions that led to the development of a robust and scalable vulnerability management system.
 
-## Arquitetura do Sistema
+## System Architecture
 
-### Visão Arquitetural Geral
+### General Architectural View
 
-O Chimera VMS foi projetado seguindo os princípios de **arquitetura de microserviços** e **API-first**, garantindo escalabilidade, manutenibilidade e flexibilidade. A arquitetura é composta por cinco camadas principais:
+Chimera VMS was designed following **microservices architecture** and **API-first** principles, ensuring scalability, maintainability, and flexibility. The architecture consists of five main layers:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -56,10 +56,10 @@ O Chimera VMS foi projetado seguindo os princípios de **arquitetura de microser
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Componentes Principais
+### Main Components
 
 #### 1. Data Pipeline Service
-**Responsabilidade**: Coleta, normalização e processamento de dados de vulnerabilidades
+**Responsibility**: Collection, normalization, and processing of vulnerability data
 
 ```python
 class DataPipelineService:
@@ -73,7 +73,7 @@ class DataPipelineService:
         self.validator = DataValidator()
         
     async def process_vulnerability_data(self, source: str):
-        """Processa dados de vulnerabilidades de uma fonte específica"""
+        """Process vulnerability data from a specific source"""
         raw_data = await self.collectors[source].fetch_data()
         normalized_data = self.normalizer.normalize(raw_data)
         validated_data = self.validator.validate(normalized_data)
@@ -82,7 +82,7 @@ class DataPipelineService:
 ```
 
 #### 2. ML Engine Service
-**Responsabilidade**: Classificação e predição de vulnerabilidades usando Machine Learning
+**Responsibility**: Vulnerability classification and prediction using Machine Learning
 
 ```python
 class MLEngineService:
@@ -92,7 +92,7 @@ class MLEngineService:
         self.trainer = ModelTrainer()
         
     def classify_vulnerability(self, vulnerability_data: dict) -> dict:
-        """Classifica uma vulnerabilidade usando ML"""
+        """Classify a vulnerability using ML"""
         features = self.extract_features(vulnerability_data)
         prediction = self.classifier.predict(features)
         confidence = self.classifier.predict_proba(features)
@@ -104,14 +104,14 @@ class MLEngineService:
         }
         
     def train_model(self, training_data: list):
-        """Treina o modelo com novos dados"""
+        """Train model with new data"""
         X, y = self.prepare_training_data(training_data)
         self.classifier.fit(X, y)
         self.save_model()
 ```
 
 #### 3. Alert Service
-**Responsabilidade**: Gerenciamento de alertas e integração com Opsgenie
+**Responsibility**: Alert management and Opsgenie integration
 
 ```python
 class AlertService:
@@ -121,26 +121,26 @@ class AlertService:
         self.alert_rules = AlertRules()
         
     async def process_alert(self, vulnerability: dict):
-        """Processa alerta de vulnerabilidade"""
+        """Process vulnerability alert"""
         if self.should_alert(vulnerability):
             alert_data = self.create_alert_data(vulnerability)
             
-            # Enviar para Opsgenie
+            # Send to Opsgenie
             await self.opsgenie_client.create_alert(alert_data)
             
-            # Enviar notificações
+            # Send notifications
             await self.notification_service.send_notifications(alert_data)
             
     def should_alert(self, vulnerability: dict) -> bool:
-        """Determina se deve gerar alerta baseado nas regras"""
+        """Determine if should generate alert based on rules"""
         return self.alert_rules.evaluate(vulnerability)
 ```
 
-## Stack Tecnológico
+## Technology Stack
 
 ### Backend
 
-#### Framework Principal: FastAPI
+#### Main Framework: FastAPI
 ```python
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -171,14 +171,14 @@ async def get_vulnerabilities(
     severity: str = None,
     token: str = Depends(security)
 ):
-    """Endpoint para buscar vulnerabilidades"""
+    """Endpoint to search vulnerabilities"""
     vulnerabilities = await vulnerability_service.get_vulnerabilities(
         skip=skip, limit=limit, severity=severity
     )
     return vulnerabilities
 ```
 
-#### Banco de Dados: PostgreSQL + SQLAlchemy
+#### Database: PostgreSQL + SQLAlchemy
 ```python
 from sqlalchemy import Column, Integer, String, DateTime, Text, DECIMAL
 from sqlalchemy.ext.declarative import declarative_base
@@ -200,7 +200,7 @@ class Vulnerability(Base):
     last_modified = Column(DateTime)
     created_at = Column(DateTime, default=datetime.utcnow)
     
-    # Relacionamentos
+    # Relationships
     classifications = relationship("MLClassification", back_populates="vulnerability")
     alerts = relationship("Alert", back_populates="vulnerability")
 
@@ -214,7 +214,7 @@ class MLClassification(Base):
     model_version = Column(String(10))
     created_at = Column(DateTime, default=datetime.utcnow)
     
-    # Relacionamento
+    # Relationship
     vulnerability = relationship("Vulnerability", back_populates="classifications")
 ```
 
@@ -234,14 +234,14 @@ class CacheService:
         )
         
     async def get(self, key: str) -> Optional[Any]:
-        """Recupera dados do cache"""
+        """Retrieve data from cache"""
         data = self.redis_client.get(key)
         if data:
             return json.loads(data)
         return None
         
     async def set(self, key: str, value: Any, ttl: int = 3600):
-        """Armazena dados no cache"""
+        """Store data in cache"""
         self.redis_client.setex(
             key, 
             ttl, 
@@ -249,7 +249,7 @@ class CacheService:
         )
         
     async def delete(self, key: str):
-        """Remove dados do cache"""
+        """Remove data from cache"""
         self.redis_client.delete(key)
 ```
 
@@ -375,13 +375,13 @@ class VulnerabilityClassifier:
         self.feature_names = []
         
     def prepare_features(self, data: pd.DataFrame) -> np.ndarray:
-        """Prepara features para treinamento"""
+        """Prepare features for training"""
         # Feature engineering
         data['description_length'] = data['description'].str.len()
         data['title_length'] = data['title'].str.len()
         data['has_exploit'] = data['exploit_available'].astype(int)
         
-        # Selecionar features numéricas
+        # Select numeric features
         numeric_features = [
             'cvss_score', 'description_length', 'title_length',
             'has_exploit', 'references_count'
@@ -393,16 +393,16 @@ class VulnerabilityClassifier:
         return self.scaler.fit_transform(X)
         
     def train(self, X: np.ndarray, y: np.ndarray):
-        """Treina o modelo"""
-        # Dividir dados
+        """Train the model"""
+        # Split data
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.2, random_state=42, stratify=y
         )
         
-        # Treinar modelo
+        # Train model
         self.model.fit(X_train, y_train)
         
-        # Avaliar modelo
+        # Evaluate model
         y_pred = self.model.predict(X_test)
         print("Classification Report:")
         print(classification_report(y_test, y_pred))
@@ -413,19 +413,19 @@ class VulnerabilityClassifier:
         print(f"Mean CV score: {cv_scores.mean():.3f}")
         
     def predict(self, X: np.ndarray) -> np.ndarray:
-        """Faz predições"""
+        """Make predictions"""
         X_scaled = self.scaler.transform(X)
         return self.model.predict(X_scaled)
         
     def predict_proba(self, X: np.ndarray) -> np.ndarray:
-        """Retorna probabilidades das predições"""
+        """Return prediction probabilities"""
         X_scaled = self.scaler.transform(X)
         return self.model.predict_proba(X_scaled)
 ```
 
-## Integração com Sistemas Externos
+## Integration with External Systems
 
-### Integração com Opsgenie
+### Opsgenie Integration
 ```python
 import requests
 from typing import Dict, Any
@@ -440,7 +440,7 @@ class OpsgenieClient:
         }
         
     async def create_alert(self, alert_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Cria alerta no Opsgenie"""
+        """Create alert in Opsgenie"""
         url = f"{self.base_url}/v2/alerts"
         
         payload = {
@@ -459,7 +459,7 @@ class OpsgenieClient:
         return response.json()
         
     async def update_alert(self, alert_id: str, update_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Atualiza alerta existente"""
+        """Update existing alert"""
         url = f"{self.base_url}/v2/alerts/{alert_id}"
         
         response = requests.patch(url, json=update_data, headers=self.headers)
@@ -468,7 +468,7 @@ class OpsgenieClient:
         return response.json()
 ```
 
-### Integração com APIs de Vulnerabilidades
+### Vulnerability API Integration
 ```python
 import aiohttp
 import asyncio
@@ -482,7 +482,7 @@ class NVDCollector:
     async def fetch_vulnerabilities(self, 
                                   start_index: int = 0,
                                   results_per_page: int = 2000) -> List[Dict[str, Any]]:
-        """Coleta vulnerabilidades do NVD"""
+        """Collect vulnerabilities from NVD"""
         vulnerabilities = []
         
         async with aiohttp.ClientSession() as session:
@@ -500,7 +500,7 @@ class NVDCollector:
                         data = await response.json()
                         vulnerabilities.extend(data.get("vulnerabilities", []))
                         
-                        # Verificar se há mais dados
+                        # Check if there's more data
                         if len(data.get("vulnerabilities", [])) < results_per_page:
                             break
                             
@@ -511,7 +511,7 @@ class NVDCollector:
         return vulnerabilities
         
     async def fetch_vulnerability_by_cve(self, cve_id: str) -> Dict[str, Any]:
-        """Coleta vulnerabilidade específica por CVE ID"""
+        """Collect specific vulnerability by CVE ID"""
         url = f"{self.base_url}/{cve_id}"
         
         async with aiohttp.ClientSession() as session:
@@ -523,60 +523,60 @@ class NVDCollector:
                     raise Exception(f"Error fetching CVE {cve_id}: {response.status}")
 ```
 
-## Infraestrutura e Deploy
+## Infrastructure and Deploy
 
-### Containerização com Docker
+### Containerization with Docker
 ```dockerfile
-# Dockerfile para Backend
+# Dockerfile for Backend
 FROM python:3.11-slim
 
 WORKDIR /app
 
-# Instalar dependências do sistema
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiar requirements e instalar dependências Python
+# Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar código da aplicação
+# Copy application code
 COPY . .
 
-# Expor porta
+# Expose port
 EXPOSE 8000
 
-# Comando para executar a aplicação
+# Command to run the application
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
 ```dockerfile
-# Dockerfile para Frontend
+# Dockerfile for Frontend
 FROM node:18-alpine as build
 
 WORKDIR /app
 
-# Copiar package files
+# Copy package files
 COPY package*.json ./
 
-# Instalar dependências
+# Install dependencies
 RUN npm ci --only=production
 
-# Copiar código fonte
+# Copy source code
 COPY . .
 
-# Build da aplicação
+# Build application
 RUN npm run build
 
-# Estágio de produção
+# Production stage
 FROM nginx:alpine
 
-# Copiar arquivos buildados
+# Copy built files
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copiar configuração do nginx
+# Copy nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
@@ -584,7 +584,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### Orquestração com Docker Compose
+### Orchestration with Docker Compose
 ```yaml
 # docker-compose.yml
 version: '3.8'
@@ -662,14 +662,14 @@ volumes:
   redis_data:
 ```
 
-## Monitoramento e Observabilidade
+## Monitoring and Observability
 
-### Métricas com Prometheus
+### Metrics with Prometheus
 ```python
 from prometheus_client import Counter, Histogram, Gauge, start_http_server
 import time
 
-# Métricas personalizadas
+# Custom metrics
 vulnerability_requests = Counter(
     'vulnerability_requests_total',
     'Total number of vulnerability requests',
@@ -688,14 +688,14 @@ active_vulnerabilities = Gauge(
     ['severity']
 )
 
-# Middleware para capturar métricas
+# Middleware to capture metrics
 @app.middleware("http")
 async def metrics_middleware(request: Request, call_next):
     start_time = time.time()
     
     response = await call_next(request)
     
-    # Capturar métricas
+    # Capture metrics
     vulnerability_requests.labels(
         method=request.method,
         endpoint=request.url.path,
@@ -709,7 +709,7 @@ async def metrics_middleware(request: Request, call_next):
     return response
 ```
 
-### Logging Estruturado
+### Structured Logging
 ```python
 import logging
 import json
@@ -720,14 +720,14 @@ class StructuredLogger:
         self.logger = logging.getLogger(name)
         self.logger.setLevel(logging.INFO)
         
-        # Configurar handler
+        # Configure handler
         handler = logging.StreamHandler()
         formatter = logging.Formatter('%(message)s')
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
         
     def log(self, level: str, message: str, **kwargs):
-        """Log estruturado"""
+        """Structured log"""
         log_entry = {
             "timestamp": datetime.utcnow().isoformat(),
             "level": level,
@@ -746,7 +746,7 @@ class StructuredLogger:
     def warning(self, message: str, **kwargs):
         self.log("WARNING", message, **kwargs)
 
-# Uso do logger
+# Logger usage
 logger = StructuredLogger("chimera_vms")
 
 logger.info("Vulnerability processed", 
@@ -755,9 +755,9 @@ logger.info("Vulnerability processed",
            processing_time=0.123)
 ```
 
-## Segurança
+## Security
 
-### Autenticação e Autorização
+### Authentication and Authorization
 ```python
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
@@ -765,7 +765,7 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
 
-# Configuração de segurança
+# Security configuration
 SECRET_KEY = "your-secret-key"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
@@ -774,15 +774,15 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 security = HTTPBearer()
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    """Verifica senha"""
+    """Verify password"""
     return pwd_context.verify(plain_password, hashed_password)
 
 def get_password_hash(password: str) -> str:
-    """Gera hash da senha"""
+    """Generate password hash"""
     return pwd_context.hash(password)
 
 def create_access_token(data: dict, expires_delta: timedelta = None):
-    """Cria token de acesso"""
+    """Create access token"""
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.utcnow() + expires_delta
@@ -793,7 +793,7 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
     return encoded_jwt
 
 def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
-    """Verifica token de acesso"""
+    """Verify access token"""
     try:
         payload = jwt.decode(credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
@@ -812,18 +812,18 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
         )
 ```
 
-## Conclusão
+## Conclusion
 
-A implementação do Chimera VMS demonstra uma arquitetura robusta e escalável, utilizando tecnologias modernas e seguindo as melhores práticas de desenvolvimento de software. O sistema foi projetado para ser:
+The Chimera VMS implementation demonstrates a robust and scalable architecture, using modern technologies and following software development best practices. The system was designed to be:
 
-- **Escalável**: Suporta crescimento horizontal e vertical
-- **Manutenível**: Código limpo e bem documentado
-- **Seguro**: Múltiplas camadas de segurança
-- **Observável**: Monitoramento e logging completos
-- **Testável**: Cobertura de testes abrangente
+- **Scalable**: Supports horizontal and vertical growth
+- **Maintainable**: Clean and well-documented code
+- **Secure**: Multiple security layers
+- **Observable**: Complete monitoring and logging
+- **Testable**: Comprehensive test coverage
 
-A combinação de microserviços, APIs REST, Machine Learning e integração com sistemas externos resulta em uma solução completa e eficiente para gestão de vulnerabilidades.
+The combination of microservices, REST APIs, Machine Learning, and external system integration results in a complete and efficient vulnerability management solution.
 
 ---
 
-**Próxima Seção**: [Resultados](/docs/resultados/)
+**Next Section**: [Results](/docs/resultados/)
