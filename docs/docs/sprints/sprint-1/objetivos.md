@@ -2,101 +2,101 @@
 sidebar_position: 1
 ---
 
-# Sprint 1 - Objetivos
+# Sprint 1 - Objectives
 
-## Período
-**Data de Início**: 15/01/2025  
-**Data de Fim**: 29/01/2025  
-**Duração**: 2 semanas
+## Period
+**Start Date**: January 15, 2025  
+**End Date**: January 29, 2025  
+**Duration**: 2 weeks
 
-## Objetivo Principal
-Estabelecer a base sólida do projeto Chimera VMS através do planejamento detalhado, preparação do ambiente de desenvolvimento e definição clara dos requisitos técnicos.
+## Main Objective
+Establish the solid foundation of the Chimera VMS project through detailed planning, development environment preparation, and clear definition of technical requirements.
 
-## Objetivos Específicos
+## Specific Objectives
 
-### 1. Planejamento e Estruturação
-- [x] Definir arquitetura geral do sistema
-- [x] Estabelecer metodologia de desenvolvimento ágil
-- [x] Criar roadmap detalhado das 5 sprints
-- [x] Definir critérios de aceitação para cada funcionalidade
+### 1. Planning and Structuring
+- [x] Define overall system architecture
+- [x] Establish agile development methodology
+- [x] Create detailed roadmap for 5 sprints
+- [x] Define acceptance criteria for each functionality
 
-### 2. Preparação do Ambiente
-- [x] Configurar ambiente de desenvolvimento local
-- [x] Estabelecer pipeline de CI/CD
-- [x] Configurar ferramentas de versionamento (Git)
-- [x] Preparar ambiente de testes
+### 2. Environment Preparation
+- [x] Configure local development environment
+- [x] Establish CI/CD pipeline
+- [x] Configure versioning tools (Git)
+- [x] Prepare testing environment
 
-### 3. Análise de Requisitos
-- [x] Mapear fontes de dados de vulnerabilidades
-- [x] Definir estrutura do banco de dados
-- [x] Especificar APIs necessárias (Opsgenie, scanners)
-- [x] Documentar casos de uso principais
+### 3. Requirements Analysis
+- [x] Map vulnerability data sources
+- [x] Define database structure
+- [x] Specify necessary APIs (Opsgenie, scanners)
+- [x] Document main use cases
 
-### 4. Definição Técnica
-- [x] Escolher stack tecnológico
-- [x] Definir padrões de código e documentação
-- [x] Estabelecer métricas de qualidade
-- [x] Configurar ferramentas de monitoramento
+### 4. Technical Definition
+- [x] Choose technology stack
+- [x] Define code and documentation standards
+- [x] Establish quality metrics
+- [x] Configure monitoring tools
 
-## Entregáveis Esperados
+## Expected Deliverables
 
-### Documentação
-- [x] Documento de Arquitetura do Sistema
-- [x] Especificação de Requisitos Funcionais
-- [x] Plano de Testes
-- [x] Guia de Configuração do Ambiente
+### Documentation
+- [x] System Architecture Document
+- [x] Functional Requirements Specification
+- [x] Test Plan
+- [x] Environment Configuration Guide
 
-### Código
-- [x] Estrutura base do projeto
-- [x] Configuração de dependências
-- [x] Scripts de inicialização
-- [x] Testes unitários básicos
+### Code
+- [x] Project base structure
+- [x] Dependency configuration
+- [x] Initialization scripts
+- [x] Basic unit tests
 
-### Infraestrutura
-- [x] Ambiente de desenvolvimento configurado
-- [x] Pipeline de CI/CD funcional
-- [x] Banco de dados estruturado
-- [x] Monitoramento básico implementado
+### Infrastructure
+- [x] Configured development environment
+- [x] Functional CI/CD pipeline
+- [x] Structured database
+- [x] Basic monitoring implemented
 
-## Critérios de Sucesso
+## Success Criteria
 
-### Técnicos
-- ✅ Ambiente de desenvolvimento 100% funcional
-- ✅ Pipeline de CI/CD executando sem erros
-- ✅ Documentação técnica completa e aprovada
-- ✅ Estrutura de código seguindo padrões estabelecidos
+### Technical
+- ✅ 100% functional development environment
+- ✅ CI/CD pipeline running without errors
+- ✅ Complete and approved technical documentation
+- ✅ Code structure following established standards
 
-### Funcionais
-- ✅ Requisitos claramente definidos e validados
-- ✅ Arquitetura aprovada pelo Product Owner
-- ✅ Cronograma de sprints detalhado e factível
-- ✅ Equipe alinhada com objetivos e metodologia
+### Functional
+- ✅ Clearly defined and validated requirements
+- ✅ Architecture approved by Product Owner
+- ✅ Detailed and feasible sprint schedule
+- ✅ Team aligned with objectives and methodology
 
-## Riscos Identificados
+## Identified Risks
 
-### Alto Impacto
-- **Complexidade da Integração**: APIs de diferentes fornecedores podem ter limitações
-- **Performance**: Volume de dados pode impactar performance do sistema
+### High Impact
+- **Integration Complexity**: APIs from different vendors may have limitations
+- **Performance**: Data volume may impact system performance
 
-### Médio Impacto
-- **Disponibilidade de Dados**: Fontes de vulnerabilidades podem ter limitações de acesso
-- **Aprendizado**: Curva de aprendizado das tecnologias escolhidas
+### Medium Impact
+- **Data Availability**: Vulnerability sources may have access limitations
+- **Learning**: Learning curve for chosen technologies
 
-### Baixo Impacto
-- **Mudanças de Escopo**: Possíveis ajustes durante o desenvolvimento
-- **Dependências Externas**: Disponibilidade de serviços terceiros
+### Low Impact
+- **Scope Changes**: Possible adjustments during development
+- **External Dependencies**: Availability of third-party services
 
-## Próximos Passos
+## Next Steps
 
-Após a conclusão da Sprint 1, a equipe estará preparada para iniciar a Sprint 2, focada na **Automação e Normalização** dos dados de vulnerabilidades.
+After completing Sprint 1, the team will be prepared to start Sprint 2, focused on **Automation and Normalization** of vulnerability data.
 
-### Preparação para Sprint 2
-- [ ] Revisar entregáveis da Sprint 1
-- [ ] Ajustar cronograma se necessário
-- [ ] Preparar ambiente para desenvolvimento de automação
-- [ ] Definir métricas específicas para Sprint 2
+### Preparation for Sprint 2
+- [ ] Review Sprint 1 deliverables
+- [ ] Adjust schedule if necessary
+- [ ] Prepare environment for automation development
+- [ ] Define specific metrics for Sprint 2
 
 ---
 
-**Status da Sprint**: ✅ **Concluída**  
-**Próxima Sprint**: [Sprint 2 - Automação e Normalização](/docs/sprints/sprint-2/objetivos)
+**Sprint Status**: ✅ **Completed**  
+**Next Sprint**: [Sprint 2 - Automation and Normalization](/docs/sprints/sprint-2/objetivos)
