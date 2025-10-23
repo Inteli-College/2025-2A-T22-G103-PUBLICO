@@ -20,48 +20,70 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Module 13 - Chimera VMS Development',
       items: [
+        'modulo13/index',
         {
           type: 'category',
           label: 'Theoretical Foundation',
           items: [
-            'fundamentacao/cybersecurity',
-            'fundamentacao/vulnerability-management',
-            'fundamentacao/machine-learning',
+            'modulo13/fundamentacao/cybersecurity',
+            'modulo13/fundamentacao/vulnerability-management',
+            'modulo13/fundamentacao/machine-learning',
           ],
         },
         {
           type: 'category',
           label: 'Methodology',
           items: [
-            'metodologia/index',
+            'modulo13/metodologia/index',
           ],
         },
         {
           type: 'category',
           label: 'Implementation',
           items: [
-            'implementacao/index',
+            'modulo13/implementacao/index',
           ],
         },
         {
           type: 'category',
           label: 'Results',
           items: [
-            'resultados/index',
+            'modulo13/resultados/index',
           ],
         },
         {
           type: 'category',
           label: 'Conclusions',
           items: [
-            'conclusoes/index',
+            'modulo13/conclusoes/index',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Sprint Documentation',
+          items: [
+            'modulo13/sprints/sprint-1/objetivos',
+            'modulo13/sprints/sprint-1/tarefas',
+            'modulo13/sprints/sprint-1/entregaveis',
+            'modulo13/sprints/sprint-2/objetivos',
+            'modulo13/sprints/sprint-2/tarefas',
+            'modulo13/sprints/sprint-2/entregaveis',
+            'modulo13/sprints/sprint-3/objetivos',
+            'modulo13/sprints/sprint-3/tarefas',
+            'modulo13/sprints/sprint-3/entregaveis',
+            'modulo13/sprints/sprint-4/objetivos',
+            'modulo13/sprints/sprint-4/tarefas',
+            'modulo13/sprints/sprint-4/entregaveis',
+            'modulo13/sprints/sprint-5/objetivos',
+            'modulo13/sprints/sprint-5/tarefas',
+            'modulo13/sprints/sprint-5/entregaveis',
           ],
         },
       ],
     },
     {
       type: 'category',
-      label: 'Module 14 - Future Work',
+      label: 'Module 14 - PKI Authentication Implementation',
       items: [
         'modulo14/index',
         'modulo14/intro',
@@ -76,54 +98,55 @@ const sidebars: SidebarsConfig = {
   sprintsSidebar: [
     {
       type: 'category',
-      label: 'Sprint 1 - Planejamento e Preparação',
+      label: 'Module 13 - Sprint Documentation',
       items: [
-        'sprints/sprint-1/objetivos',
-        'sprints/sprint-1/tarefas',
-        'sprints/sprint-1/entregaveis',
-        // 'sprints/sprint-1/retrospectiva',
+        {
+          type: 'category',
+          label: 'Sprint 1 - Planejamento e Preparação',
+          items: [
+            'modulo13/sprints/sprint-1/objetivos',
+            'modulo13/sprints/sprint-1/tarefas',
+            'modulo13/sprints/sprint-1/entregaveis',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Sprint 2 - Automação e Normalização',
+          items: [
+            'modulo13/sprints/sprint-2/objetivos',
+            'modulo13/sprints/sprint-2/tarefas',
+            'modulo13/sprints/sprint-2/entregaveis',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Sprint 3 - Estruturação e Inserção',
+          items: [
+            'modulo13/sprints/sprint-3/objetivos',
+            'modulo13/sprints/sprint-3/tarefas',
+            'modulo13/sprints/sprint-3/entregaveis',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Sprint 4 - Inteligência e Integração',
+          items: [
+            'modulo13/sprints/sprint-4/objetivos',
+            'modulo13/sprints/sprint-4/tarefas',
+            'modulo13/sprints/sprint-4/entregaveis',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Sprint 5 - Visualização e Validação',
+          items: [
+            'modulo13/sprints/sprint-5/objetivos',
+            'modulo13/sprints/sprint-5/tarefas',
+            'modulo13/sprints/sprint-5/entregaveis',
+          ],
+        },
       ],
     },
-    {
-      type: 'category',
-      label: 'Sprint 2 - Automação e Normalização',
-      items: [
-        'sprints/sprint-2/objetivos',
-        'sprints/sprint-2/tarefas',
-        'sprints/sprint-2/entregaveis',
-        // 'sprints/sprint-2/retrospectiva',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Sprint 3 - Estruturação e Inserção',
-      items: [
-        'sprints/sprint-3/objetivos',
-        'sprints/sprint-3/tarefas',
-        'sprints/sprint-3/entregaveis',
-        // 'sprints/sprint-3/retrospectiva',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Sprint 4 - Inteligência e Integração',
-      items: [
-        'sprints/sprint-4/objetivos',
-        'sprints/sprint-4/tarefas',
-        'sprints/sprint-4/entregaveis',
-        // 'sprints/sprint-4/retrospectiva',
-      ],
-    },
-    // {
-    //   type: 'category',
-    //   label: 'Sprint 5 - Visualização e Validação',
-    //   items: [
-    //     'sprints/sprint-5/objetivos',
-    //     'sprints/sprint-5/tarefas',
-    //     'sprints/sprint-5/entregaveis',
-    //     'sprints/sprint-5/retrospectiva',
-    //   ],
-    // },
   ],
 };
 

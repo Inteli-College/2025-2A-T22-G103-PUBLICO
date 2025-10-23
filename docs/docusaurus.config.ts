@@ -113,10 +113,10 @@ const config: Config = {
             },
             {
               label: 'Module 13 - Chimera VMS',
-              to: '/docs/fundamentacao/cybersecurity',
+              to: '/docs/modulo13/index',
             },
             {
-              label: 'Module 14 - Future Work',
+              label: 'Module 14 - PKI Authentication',
               to: '/docs/modulo14/intro',
             },
           ],
@@ -125,12 +125,12 @@ const config: Config = {
           title: 'Sprints',
           items: [
             {
-              label: 'Sprint 1',
-              to: '/docs/sprints/sprint-1/objetivos',
+              label: 'Module 13 Sprints',
+              to: '/docs/modulo13/sprints/sprint-1/objetivos',
             },
             {
-              label: 'Progress',
-              to: '/docs/sprints',
+              label: 'Sprint Progress',
+              to: '/docs/modulo13/sprints/sprint-1/objetivos',
             },
           ],
         },
