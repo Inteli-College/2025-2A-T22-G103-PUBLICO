@@ -87,6 +87,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'modulo14/index',
         'modulo14/intro',
+        'modulo14/implementation',
         'modulo14/roadmap',
         'modulo14/research',
         'modulo14/expansion',
