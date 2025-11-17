@@ -25,6 +25,11 @@ Overview of Module 14 objectives and the transition from Module 13
 ### ✅ [Current Implementation](/docs/modulo14/implementation)
 **NEW**: Documentation of the implemented PKI authentication system
 
+### 🧪 [Testing Documentation](/docs/modulo14/testing)
+**NEW**: Comprehensive test suite documentation 
+### 🔐 [Cryptography Comparison](/docs/modulo14/cryptography-comparison)
+**NEW**: Detailed comparison of symmetric vs asymmetric cryptography and signature methods
+
 ### 🗺️ [Development Roadmap](/docs/modulo14/roadmap)
 Detailed technical roadmap and strategic planning
 
@@ -63,6 +68,7 @@ Platform expansion and market growth strategies
 - ✅ **Signature Verification**: Automatic validation on Receiver API
 - ✅ **Three Message Formats**: Message1, Message2, and File upload
 - ✅ **Security Headers**: Authorization header with PKI signatures
+- ✅ **Comprehensive Testing**: 50+ test cases covering all functionality
 
 ### Technical Achievements
 - ✅ **Module 13 Completion**: 89.2% ML accuracy achieved
