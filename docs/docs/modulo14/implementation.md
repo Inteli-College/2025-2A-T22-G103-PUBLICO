@@ -6,7 +6,9 @@ sidebar_position: 3
 
 ## Overview
 
-This document describes the current implementation of PKI authentication for the Chimera VMS APIs. The implementation provides cryptographic authentication using public/private key pairs to secure communication between the Sender API and Receiver API.
+This document describes the current implementation of PKI authentication for the APIs. The implementation provides cryptographic authentication using public/private key pairs to secure communication between the Sender API and Receiver API.
+
+**Framework**: Falcon (WSGI)
 
 ## Architecture
 
@@ -20,6 +22,14 @@ This document describes the current implementation of PKI authentication for the
 │ Private Key     │         │  Public Key     │
 │ (Signs)        │         │  (Verifies)      │
 └─────────────────┘         └──────────────────┘
+        │                          │
+        └──────────┬───────────────┘
+                   │
+           ┌───────▼───────┐
+           │    Secrets    │
+           │  Management   │
+           │  (Env/Docker) │
+           └───────────────┘
 ```
 
 ### Key Components
@@ -30,21 +40,59 @@ This document describes the current implementation of PKI authentication for the
    - Signature verification
    - Key serialization/deserialization
 
-2. **Sender API** (`apis/sender_api/main.py`)
-   - Generates key pair on first run
+2. **PKI Secrets Module** (`apis/pki/secrets.py`)
+   - Load keys from environment variables
+   - Load keys from Docker secrets
+   - Load keys from file paths
+   - Base64 encoding/decoding for secrets
+
+3. **Sender API** (`apis/sender_api/main.py`)
+   - Falcon WSGI application
+   - Generates key pair on first run (development)
+   - Loads keys from secrets (production)
    - Signs all outgoing requests
    - Sends signature in `Authorization` header
 
-3. **Receiver API** (`apis/receiver_api/main.py`)
-   - Loads public key from Sender API
+4. **Receiver API** (`apis/receiver_api/main.py`)
+   - Falcon WSGI application
+   - Loads public key from secrets or file
    - Verifies signatures on incoming requests
    - Rejects invalid requests (401 Unauthorized)
 
 ## Implementation Details
 
-### 1. Key Generation
+### 1. Secrets Management
 
-Keys are automatically generated on the first execution of the Sender API:
+Keys can be loaded from multiple sources (in order of priority):
+
+#### Option 1: Environment Variables (Base64 encoded)
+```bash
+export PKI_PRIVATE_KEY="base64_encoded_pem_content"
+export PKI_PUBLIC_KEY="base64_encoded_pem_content"
+```
+
+#### Option 2: File Paths
+```bash
+export PKI_PRIVATE_KEY_FILE="/path/to/private_key.pem"
+export PKI_PUBLIC_KEY_FILE="/path/to/public_key.pem"
+```
+
+#### Option 3: Docker Secrets
+```bash
+# Keys are automatically loaded from /run/secrets/
+# - /run/secrets/pki_private_key
+# - /run/secrets/pki_public_key
+```
+
+#### Option 4: Local Files (Development)
+```
+apis/sender_api/private_key.pem
+apis/sender_api/public_key.pem
+```
+
+### 2. Key Generation
+
+Keys are automatically generated on the first execution of the Sender API (development mode):
 
 ```python
 # Location: apis/pki/crypto.py
@@ -58,20 +106,20 @@ def generate_key_pair():
     return private_key, public_key
 ```
 
-**Key Files:**
+**Key Files (Development):**
 - `sender_api/private_key.pem` - Private key (kept secret)
 - `sender_api/public_key.pem` - Public key (shared with Receiver)
 
-### 2. Request Signing
+### 3. Request Signing
 
 The Sender API signs all outgoing requests:
 
 ```python
 # Message signing process
-message_data = request.message.dict()
-message_json = json.dumps(message_data, sort_keys=True, default=str)
-message_bytes = message_json.encode('utf-8')
-signature = sign_data(private_key, message_bytes)
+def create_signature(data: dict) -> str:
+    data_json = json.dumps(data, sort_keys=True, default=str)
+    data_bytes = data_json.encode('utf-8')
+    return sign_data(private_key, data_bytes)
 
 # Add to Authorization header
 headers = {"Authorization": f"PKI {signature}"}
@@ -82,13 +130,13 @@ headers = {"Authorization": f"PKI {signature}"}
 - Padding: PSS (Probabilistic Signature Scheme)
 - Encoding: Base64
 
-### 3. Signature Verification
+### 4. Signature Verification
 
 The Receiver API verifies all incoming requests:
 
 ```python
-def verify_pki_signature(request: Request, body_data: Any) -> bool:
-    auth_header = request.headers.get("Authorization", "")
+def verify_pki_signature(req, body_data):
+    auth_header = req.get_header("Authorization", default="")
     if not auth_header.startswith("PKI "):
         return False
     
@@ -99,7 +147,7 @@ def verify_pki_signature(request: Request, body_data: Any) -> bool:
     return verify_signature(public_key, body_bytes, signature)
 ```
 
-### 4. Message Formats Supported
+### 5. Message Formats Supported
 
 The implementation supports three message formats:
 
@@ -145,7 +193,10 @@ The implementation supports three message formats:
 - `GET /api/test/message1` - Create and send test Message1
 - `GET /api/test/message2` - Create and send test Message2
 - `GET /api/test/file` - Create and send test file
-- `GET /api/test/bulk-send` - Bulk send test
+
+**Utility Endpoints:**
+- `GET /api/receiver/messages` - Get messages from receiver
+- `GET /api/receiver/stats` - Get stats from receiver
 
 ### Receiver API (Port 8001)
 
@@ -177,8 +228,14 @@ The implementation supports three message formats:
 - Invalid signatures rejected (401 Unauthorized)
 - Comprehensive logging for audit
 
+✅ **Secrets Management**
+- Environment variable support
+- Docker secrets support
+- File-based fallback for development
+- Base64 encoding for secrets storage
+
 ✅ **Key Management**
-- Automatic key generation
+- Automatic key generation (development)
 - Private key never shared
 - Public key shared securely
 
@@ -200,6 +257,63 @@ The implementation supports three message formats:
 - Rate limiting per key
 
 ## Usage Examples
+
+### Starting the APIs
+
+#### Development Mode
+
+```bash
+# Terminal 1 - Receiver API
+cd apis/receiver_api
+python main.py
+
+# Terminal 2 - Sender API
+cd apis/sender_api
+python main.py
+```
+
+#### Production Mode (Gunicorn)
+
+```bash
+# Receiver API
+cd apis/receiver_api
+gunicorn --bind 0.0.0.0:8001 --workers 4 main:app
+
+# Sender API
+cd apis/sender_api
+gunicorn --bind 0.0.0.0:8002 --workers 4 main:app
+```
+
+#### Using Docker with Secrets
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  sender:
+    build: ./sender_api
+    ports:
+      - "8002:8002"
+    secrets:
+      - pki_private_key
+    environment:
+      - PKI_SECRETS_DIR=/run/secrets
+
+  receiver:
+    build: ./receiver_api
+    ports:
+      - "8001:8001"
+    secrets:
+      - pki_public_key
+    environment:
+      - PKI_SECRETS_DIR=/run/secrets
+
+secrets:
+  pki_private_key:
+    file: ./secrets/private_key.pem
+  pki_public_key:
+    file: ./secrets/public_key.pem
+```
 
 ### Sending a Message1
 
@@ -235,6 +349,14 @@ curl http://localhost:8001/api/messages/{message_id}
 curl http://localhost:8001/api/stats
 ```
 
+### Exporting Keys for Secrets
+
+```bash
+# Using the run_apis.py script
+python apis/run_apis.py
+# Choose option 5: Export keys for secrets
+```
+
 ## Error Handling
 
 ### Authentication Failures
@@ -242,7 +364,7 @@ curl http://localhost:8001/api/stats
 **401 Unauthorized** - Invalid or missing signature:
 ```json
 {
-  "detail": "Invalid PKI signature"
+  "error": "Invalid PKI signature"
 }
 ```
 
@@ -260,6 +382,8 @@ Both APIs log authentication events:
 INFO: PKI signature verified for Message1: {message_id}
 ERROR: PKI signature verification failed for Message1: {message_id}
 WARNING: Public key not found. PKI verification will be disabled.
+INFO: Loaded private key from secrets
+INFO: Loaded public key from file (development mode)
 ```
 
 ## Testing
@@ -323,122 +447,6 @@ pytest apis/tests/ -v
 pytest apis/tests/ --cov=apis --cov-report=html
 ```
 
-### Test Coverage
-
-#### Sender API Tests (`test_sender_api.py`)
-
-**Basic Functionality:**
-- ✅ Root endpoint information
-- ✅ Health check endpoint
-- ✅ Message1 sending with valid data
-- ✅ Message2 sending with valid data
-- ✅ File upload functionality
-- ✅ Different message priorities
-- ✅ Different file types
-
-**Test Endpoints:**
-- ✅ Test Message1 creation and sending
-- ✅ Test Message2 creation and sending
-- ✅ Test file creation and sending
-- ✅ Bulk send operations
-
-**Error Handling:**
-- ✅ Invalid target URL handling
-- ✅ Missing required fields validation
-- ✅ Connection timeout handling
-
-**Integration:**
-- ✅ Receiver messages retrieval
-- ✅ Receiver statistics retrieval
-
-#### Receiver API Tests (`test_receiver_api.py`)
-
-**Basic Functionality:**
-- ✅ Root endpoint information
-- ✅ Health check endpoint
-- ✅ Message listing (empty state)
-- ✅ Message retrieval by ID
-- ✅ File download functionality
-- ✅ Statistics endpoint
-
-**Security Validation:**
-- ✅ Rejection of messages without PKI signature
-- ✅ Rejection of messages with invalid signature
-- ✅ Validation of required fields
-- ✅ File upload validation
-
-**Error Handling:**
-- ✅ 404 for non-existent messages
-- ✅ 404 for non-existent files
-- ✅ 401 for unauthorized requests
-
-#### Integration Tests (`test_integration.py`)
-
-**End-to-End Communication:**
-- ✅ Complete Message1 flow (Sender → Receiver)
-- ✅ Complete Message2 flow (Sender → Receiver)
-- ✅ Complete file upload flow (Sender → Receiver)
-- ✅ Bulk send and verification
-- ✅ Statistics after integration
-
-**PKI Verification:**
-- ✅ Signature verification in end-to-end flow
-- ✅ Rejection of direct requests without PKI
-
-#### Security Tests (`test_pki_security.py`)
-
-**Authentication Tests:**
-- ✅ Missing Authorization header rejection
-- ✅ Invalid Authorization format rejection
-- ✅ Invalid signature format rejection
-- ✅ Signature for different message rejection
-- ✅ Modified message body rejection
-- ✅ Empty signature rejection
-- ✅ Wrong key signature rejection
-
-**Message Type Security:**
-- ✅ Message1 signature verification
-- ✅ Message2 signature verification
-- ✅ File signature verification
-
-### Test Scenarios
-
-#### 1. Valid Request Flow
-```python
-# Test: Successful message sending with valid PKI signature
-# Expected: 200 OK, message stored in receiver
-```
-
-#### 2. Missing Authorization Header
-```python
-# Test: Request without Authorization header
-# Expected: 401 Unauthorized
-```
-
-#### 3. Invalid Signature
-```python
-# Test: Request with invalid signature format
-# Expected: 401 Unauthorized
-```
-
-#### 4. Modified Request Body
-```python
-# Test: Request with valid signature but modified body
-# Expected: 401 Unauthorized (signature mismatch)
-```
-
-#### 5. Wrong Key Signature
-```python
-# Test: Request signed with different private key
-# Expected: 401 Unauthorized
-```
-
-#### 6. End-to-End Integration
-```python
-# Test: Complete flow from sender to receiver
-# Expected: Message successfully received and retrievable
-```
-
 ### Quick Test (Manual)
 
 1. Start Receiver API:
@@ -463,62 +471,33 @@ curl http://localhost:8002/api/test/message1
 curl http://localhost:8001/api/messages
 ```
 
-### Test Metrics
-
-**Current Test Coverage:**
-- **Total Tests**: 50+ test cases
-- **Sender API**: 15+ tests
-- **Receiver API**: 12+ tests
-- **Integration**: 6+ tests
-- **Security**: 10+ tests
-
-**Test Categories:**
-- ✅ Functional tests: 30+
-- ✅ Security tests: 10+
-- ✅ Integration tests: 6+
-- ✅ Error handling tests: 8+
-
-### Continuous Integration
-
-The test suite is designed to be integrated into CI/CD pipelines:
-
-```yaml
-# Example GitHub Actions workflow
-name: PKI API Tests
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-      - name: Install dependencies
-        run: |
-          pip install -r apis/tests/requirements.txt
-          pip install -r apis/sender_api/requirements.txt
-          pip install -r apis/receiver_api/requirements.txt
-      - name: Run tests
-        run: pytest apis/tests/ -v
-```
-
 ## File Structure
 
 ```
 apis/
 ├── pki/
 │   ├── __init__.py
-│   └── crypto.py          # PKI cryptographic functions
+│   ├── crypto.py          # PKI cryptographic functions
+│   └── secrets.py         # Secrets management
 ├── sender_api/
-│   ├── main.py            # Sender API with signing
-│   ├── private_key.pem    # Private key (generated)
-│   ├── public_key.pem     # Public key (generated)
-│   └── requirements.txt
+│   ├── main.py            # Sender API (Falcon)
+│   ├── private_key.pem    # Private key (generated, dev only)
+│   ├── public_key.pem     # Public key (generated, dev only)
+│   ├── requirements.txt
+│   └── start.sh
 ├── receiver_api/
-│   ├── main.py            # Receiver API with verification
+│   ├── main.py            # Receiver API (Falcon)
+│   ├── requirements.txt
+│   └── start.sh
+├── tests/
+│   ├── conftest.py
+│   ├── test_sender_api.py
+│   ├── test_receiver_api.py
+│   ├── test_integration.py
+│   ├── test_pki_security.py
 │   └── requirements.txt
+├── config.py              # Configuration settings
+├── run_apis.py            # API runner script
 └── .gitignore             # Excludes .pem files
 ```
 
@@ -527,13 +506,39 @@ apis/
 ### Required Packages
 
 ```txt
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-pydantic==2.5.0
-httpx==0.25.2
-python-multipart==0.0.6
+# Falcon Web Framework
+falcon==3.1.3
+
+# HTTP Client
+requests==2.31.0
+
+# Cryptography
 cryptography==41.0.7
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# WSGI Server (production)
+gunicorn==21.2.0
+waitress==2.1.2
 ```
+
+## Configuration
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `RECEIVER_API_URL` | URL of Receiver API | `http://localhost:8001` |
+| `SENDER_API_PORT` | Sender API port | `8002` |
+| `RECEIVER_API_PORT` | Receiver API port | `8001` |
+| `HTTP_TIMEOUT` | HTTP request timeout | `30.0` |
+| `LOG_LEVEL` | Logging level | `INFO` |
+| `PKI_PRIVATE_KEY` | Base64 encoded private key | - |
+| `PKI_PUBLIC_KEY` | Base64 encoded public key | - |
+| `PKI_PRIVATE_KEY_FILE` | Path to private key file | - |
+| `PKI_PUBLIC_KEY_FILE` | Path to public key file | - |
+| `PKI_SECRETS_DIR` | Docker secrets directory | `/run/secrets` |
 
 ## Next Steps
 
@@ -571,5 +576,4 @@ cryptography==41.0.7
 
 ---
 
-**Status**: ✅ Sprint 1 Complete - Basic PKI authentication implemented
-
+**Status**: ✅ Sprint 1 Complete - Basic PKI authentication implemented with Falcon and Secrets Management
