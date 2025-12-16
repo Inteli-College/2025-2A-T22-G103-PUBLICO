@@ -582,31 +582,30 @@ Future enhancements will address these limitations by implementing:
 % ----------------------------------------------------------
 % Conclusion
 % ----------------------------------------------------------
-% ----------------------------------------------------------
-% Conclusion
-% ----------------------------------------------------------
 \section{Conclusion}
 \addcontentsline{toc}{section}{Conclusion}
 
-The present work successfully designed, implemented, and validated a robust Public Key Infrastructure (PKI) authentication framework for inter-API communication. By leveraging RSA-2048 asymmetric cryptography and SHA-256 with PSS padding, the system effectively addresses critical security gaps in distributed architectures, specifically providing a verifiable layer of authenticity, integrity, and non-repudiation that standard transport-layer security (TLS) cannot guarantee alone.
+This work successfully implemented a Public Key Infrastructure authentication system for inter-API communication. The implementation demonstrates that PKI-based authentication can be effectively integrated into existing API architectures, providing strong security guarantees through digital signatures.
 
-The main contributions of this research and implementation include:
+The main contributions of this work include:
 
 \begin{enumerate}
-    \item \textbf{Robust Cryptographic Framework}: The development of a complete PKI module that automates key lifecycle management, including generation, PEM-encoded storage, and retrieval, reducing the operational complexity typically associated with asymmetric systems.
-    \item \textbf{Seamless API Integration}: Demonstration of how digital signatures can be integrated into modern web frameworks (FastAPI) via standard HTTP Authorization headers without disrupting existing RESTful paradigms.
-    \item \textbf{Multi-Format Payload Security}: Validation of the signature mechanism across diverse data types, including simple and complex JSON structures and binary multipart/form-data, ensuring a unified security policy regardless of the payload nature.
-    \item \textbf{Methodological Rationale}: A technical comparative analysis that justifies the selection of RSA-2048 over symmetric (HMAC) and other asymmetric (ECC) alternatives based on maturity, non-repudiation requirements, and performance trade-offs.
-    \item \textbf{Rigorous Validation}: The creation of an extensive test suite with over 50 test cases. The 100\% success rate in these tests confirms that the system is resilient against unauthorized access, payload tampering, and signature spoofing.
+	\item A complete PKI implementation using RSA-2048 for digital signature creation and verification.
+	\item Integration of PKI authentication into FastAPI-based services with minimal code complexity.
+	\item Support for multiple message formats (JSON and binary files) with unified authentication.
+	\item Automatic key management with secure storage practices.
+	\item Comprehensive test suite with 50+ test cases covering functional, integration, and security scenarios.
+	\item Comparative analysis of cryptographic methods (symmetric vs asymmetric, RSA vs ECC vs HMAC) demonstrating the technical rationale for method selection.
+	\item Complete documentation and testing framework.
 \end{enumerate}
 
+The results confirm that the project's objectives were met: secure and authenticated communication channels were established between the Sender and Receiver APIs, with cryptographic proof of request authenticity and integrity. The comprehensive test suite validated all security properties and demonstrated 100\% success rate across 50+ test cases.
 
+The performance overhead introduced by the asymmetric cryptographic operations (less than 20ms per request) is acceptable for production use, especially considering the security benefits provided. The comparative analysis of cryptographic methods validated the selection of RSA-2048 as providing the optimal balance of security, maturity, and performance for this use case.
 
-The results obtained through the performance analysis indicate that the computational overhead (averaging less than 20ms per request) is negligible for the vast majority of enterprise applications. This proves that the enhanced security posture does not come at the cost of system scalability or user experience. Furthermore, the implementation of a "Security-by-Design" approach ensures that even if the network layer is compromised, the application-layer trust remains intact due to the cryptographic binding between the sender and the message.
+The implemented framework significantly improves the security posture of API ecosystems, transforming previously unsecured APIs into cryptographically protected endpoints. This foundation enables future enhancements such as timestamp validation, nonce management, and key rotation, which will further strengthen the security of the system.
 
-Despite the successful implementation, it is recognized that security is an evolving field. The identified limitations—such as the current lack of timestamp-based replay protection and automated key rotation—provide a clear roadmap for future iterations. Subsequent research will focus on the transition to Elliptic Curve Cryptography (ECC) for improved performance in high-throughput environments and the integration of a centralized Certificate Authority (CA) to manage trust in larger microservice ecosystems.
-
-In conclusion, this project provides a scalable and highly secure reference architecture for developers and security engineers. By transforming previously unsecured API endpoints into cryptographically verified channels, this work contributes to the broader field of cybersecurity, demonstrating that sophisticated PKI mechanisms can be implemented with clarity, efficiency, and verifiable reliability in modern software environments.
+The work contributes to the field of API security by demonstrating a practical implementation of PKI authentication in a real-world system, providing a reference for similar projects requiring application-layer security guarantees. The comprehensive testing methodology and comparative cryptographic analysis provide valuable insights for practitioners implementing similar security solutions.
 
 \end{document}
 
