@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1765853548 "c:/Users/alber/OneDrive/Documentos/hikari-tcc/2025-2A-T22-G103-PUBLICO/artigo/article.tex" "article.pdf" "article" 1765853550 2
-  "article.aux" 1765853550 18526 a66b9fb94a0e360278e730737f3a321a "pdflatex"
-  "article.tex" 1765853390 30595 352162d1b986ded9cfcf40e60d43d2b1 ""
-  "c:/Users/alber/OneDrive/Documentos/hikari-tcc/2025-2A-T22-G103-PUBLICO/artigo/article.tex" 1765853390 30595 352162d1b986ded9cfcf40e60d43d2b1 ""
+["pdflatex"] 1765854803 "c:/Users/alber/OneDrive/Documentos/hikari-tcc/fix/2025-2A-T22-G103-PUBLICO/artigo/article.tex" "article.pdf" "article" 1765854805 2
+  "article.aux" 1765854805 18526 e2a62cf8f5ad961851670f70643a32a8 "pdflatex"
+  "article.tex" 1765854803 31430 b0b8c89be71ec8efab9fbcb3a444810d ""
+  "c:/Users/alber/OneDrive/Documentos/hikari-tcc/fix/2025-2A-T22-G103-PUBLICO/artigo/article.tex" 1765854803 31430 b0b8c89be71ec8efab9fbcb3a444810d ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1681764868 2375 baa924870cfb487815765f9094cf3728 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1681764868 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1681764868 2327 9d6df24f9c4f7368395224341a95523a ""

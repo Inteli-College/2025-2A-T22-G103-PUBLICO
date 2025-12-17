@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.17)  15 DEC 2025 23:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.17)  16 DEC 2025 00:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/alber/OneDrive/Documentos/hikari-tcc/2025-2A-T22-G103-PUBLICO/artigo/article.tex
-(c:/Users/alber/OneDrive/Documentos/hikari-tcc/2025-2A-T22-G103-PUBLICO/artigo/article.tex
+**c:/Users/alber/OneDrive/Documentos/hikari-tcc/fix/2025-2A-T22-G103-PUBLICO/artigo/article.tex
+(c:/Users/alber/OneDrive/Documentos/hikari-tcc/fix/2025-2A-T22-G103-PUBLICO/artigo/article.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-03-30> (c:/texlive/2023/texmf-dist/tex/latex/abntex2/abntex2.cls
 Document Class: abntex2 2018/11/24 v-1.9.7 abnTeX2
@@ -793,7 +793,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (
 )
 \c@lstlisting=\count361
 
-c:/Users/alber/OneDrive/Documentos/hikari-tcc/2025-2A-T22-G103-PUBLICO/artigo/article.tex:130: Undefined control sequence.
+c:/Users/alber/OneDrive/Documentos/hikari-tcc/fix/2025-2A-T22-G103-PUBLICO/artigo/article.tex:130: Undefined control sequence.
 <recently read> \theforeigntitle 
                                  
 l.130 
@@ -841,19 +841,14 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 17
  (c:/texlive/2023/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-
-LaTeX Warning: Reference `tab:sym-asym' on page 2 undefined on input line 180.
-
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 186.
 
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: Reference `tab:signature-methods' on page 2 undefined on input line 209.
-
 [2{c:/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [3]
-c:/Users/alber/OneDrive/Documentos/hikari-tcc/2025-2A-T22-G103-PUBLICO/artigo/article.tex:248: Missing $ inserted.
+c:/Users/alber/OneDrive/Documentos/hikari-tcc/fix/2025-2A-T22-G103-PUBLICO/artigo/article.tex:248: Missing $ inserted.
 <inserted text> 
                 $
 l.248 ...heme) padding was selected over PKCS1-v1_
@@ -861,7 +856,7 @@ l.248 ...heme) padding was selected over PKCS1-v1_
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-c:/Users/alber/OneDrive/Documentos/hikari-tcc/2025-2A-T22-G103-PUBLICO/artigo/article.tex:249: Missing $ inserted.
+c:/Users/alber/OneDrive/Documentos/hikari-tcc/fix/2025-2A-T22-G103-PUBLICO/artigo/article.tex:249: Missing $ inserted.
 <inserted text> 
                 $
 l.249 
@@ -889,39 +884,26 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 325.
  [6] [7] [8]
 
-LaTeX Warning: Reference `tab:test-coverage' on page 9 undefined on input line 480.
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9]
 
-LaTeX Warning: Reference `tab:performance-comparison' on page 10 undefined on input line 525.
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10] [11] [12] [13] (./article.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[10] [11] [12] [13] (./article.aux) ) 
 Here is how much of TeX's memory you used:
- 19957 strings out of 476017
- 315680 string characters out of 5793766
+ 19963 strings out of 476017
+ 315764 string characters out of 5793766
  1908660 words of memory out of 5000000
  39878 multiletter control sequences out of 15000+600000
- 569569 words of font info for 143 fonts, out of 8000000 for 9000
+ 569923 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,11n,90p,1516b,1353s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,11n,90p,1520b,1353s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmss10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on article.pdf (13 pages, 302771 bytes).
+Output written on article.pdf (13 pages, 304171 bytes).
 PDF statistics:
- 339 PDF objects out of 1000 (max. 8388607)
- 298 compressed objects within 3 object streams
- 107 named destinations out of 1000 (max. 500000)
+ 341 PDF objects out of 1000 (max. 8388607)
+ 300 compressed objects within 3 object streams
+ 105 named destinations out of 1000 (max. 500000)
  34561 words of extra memory for PDF output out of 35830 (max. 10000000)
 

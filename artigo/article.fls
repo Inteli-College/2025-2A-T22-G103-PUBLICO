@@ -1,8 +1,8 @@
-PWD c:/Users/alber/OneDrive/Documentos/hikari-tcc/2025-2A-T22-G103-PUBLICO/artigo
+PWD c:/Users/alber/OneDrive/Documentos/hikari-tcc/fix/2025-2A-T22-G103-PUBLICO/artigo
 INPUT c:/texlive/2023/texmf.cnf
 INPUT c:/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/alber/OneDrive/Documentos/hikari-tcc/2025-2A-T22-G103-PUBLICO/artigo/article.tex
+INPUT c:/Users/alber/OneDrive/Documentos/hikari-tcc/fix/2025-2A-T22-G103-PUBLICO/artigo/article.tex
 OUTPUT article.log
 INPUT c:/texlive/2023/texmf-dist/tex/latex/abntex2/abntex2.cls
 INPUT c:/texlive/2023/texmf-dist/tex/latex/abntex2/abntex2.cls
