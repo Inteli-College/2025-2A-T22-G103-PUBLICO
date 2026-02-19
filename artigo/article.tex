@@ -36,7 +36,7 @@ Will implement in Sprint 2 to outline specific objectives related to measuring l
 \section{Theoretical Foundation}
 % WRITING ORDER: 1st - START HERE to build theoretical foundation
 % Research and understand key concepts before designing experiments
-Will implement in Sprint 2 to synthesize concepts of digital signatures, network latency, and non-repudiation properties.
+Digital signatures are the cryptographic mechanism that binds a message to a signer identity while preserving integrity and verifiability. In banking communications, this property is central because transactions and acknowledgements must remain auditable under dispute, often under strict regulatory and operational controls. Classical schemes such as RSA \\cite{rsa1978} and elliptic-curve signatures such as ECDSA \\cite{ecdsa2001} are still widely used, while EdDSA-style constructions provide high-speed implementations and simpler deterministic signing behavior in practice \\cite{bernstein2012}. Current standards also emphasize algorithm agility, updated parameter requirements, and migration readiness, as reflected in FIPS 186-5 \\cite{fips1865} and the 2024 publication of post-quantum signature standards \\cite{fips204,fips205}.
 
 \section{Methodology}
 % WRITING ORDER: 2nd - Design after understanding fundamentals
@@ -69,15 +69,30 @@ Will implement in Sprint 4 to indicate expected results and possible patterns of
 Will implement in Sprint 5 to recap the value of the study and propose next steps.
 
 \section*{References}
-Just a few key references to be expanded upon after the literature review is complete.
+
 
 \begin{thebibliography}{9}
 
 \bibitem{rsa1978}
 Rivest, R. L., Shamir, A., and Adleman, L. (1978). A method for obtaining digital signatures and public-key cryptosystems. \textit{Communications of the ACM}, 21(2), 120-126.
 
+\bibitem{ecdsa2001}
+Johnson, D., Menezes, A., and Vanstone, S. (2001). The elliptic curve digital signature algorithm (ECDSA). \textit{International Journal of Information Security}, 1, 36-63.
+
 \bibitem{bernstein2012}
 Bernstein, D. J., Duif, N., Lange, T., Schwabe, P., and Yang, B. Y. (2012). High-speed high-security signatures. \textit{Journal of Cryptographic Engineering}, 2(2), 77-89.
+
+\bibitem{fips1865}
+National Institute of Standards and Technology (NIST). (2023). \textit{FIPS 186-5: Digital Signature Standard (DSS)}. U.S. Department of Commerce.
+
+\bibitem{fips204}
+National Institute of Standards and Technology (NIST). (2024). \textit{FIPS 204: Module-Lattice-Based Digital Signature Standard (ML-DSA)}. U.S. Department of Commerce.
+
+\bibitem{fips205}
+National Institute of Standards and Technology (NIST). (2024). \textit{FIPS 205: Stateless Hash-Based Digital Signature Standard (SLH-DSA)}. U.S. Department of Commerce.
+
+\bibitem{sp80057}
+National Institute of Standards and Technology (NIST). (2020). \textit{SP 800-57 Part 1 Rev. 5: Recommendation for Key Management -- Part 1: General}. U.S. Department of Commerce.
 
 \bibitem{hasbrouck2013}
 Hasbrouck, J., and Saar, G. (2013). Low-latency trading. \textit{Journal of Financial Markets}, 16(4), 646-679.
