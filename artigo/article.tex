@@ -36,7 +36,13 @@ Will implement in Sprint 2 to outline specific objectives related to measuring l
 \section{Theoretical Foundation}
 % WRITING ORDER: 1st - START HERE to build theoretical foundation
 % Research and understand key concepts before designing experiments
-Digital signatures are the cryptographic mechanism that binds a message to a signer identity while preserving integrity and verifiability. In banking communications, this property is central because transactions and acknowledgements must remain auditable under dispute, often under strict regulatory and operational controls. Classical schemes such as RSA \\cite{rsa1978} and elliptic-curve signatures such as ECDSA \\cite{ecdsa2001} are still widely used, while EdDSA-style constructions provide high-speed implementations and simpler deterministic signing behavior in practice \\cite{bernstein2012}. Current standards also emphasize algorithm agility, updated parameter requirements, and migration readiness, as reflected in FIPS 186-5 \\cite{fips1865} and the 2024 publication of post-quantum signature standards \\cite{fips204,fips205}.
+Digital signatures are the cryptographic mechanism that binds a message to a signer identity while preserving integrity and verifiability. In banking communications, this property is central because transactions and acknowledgements must remain auditable under dispute, often under strict regulatory and operational controls. Classical schemes such as RSA \cite{rsa1978} and elliptic-curve signatures such as ECDSA \cite{ecdsa2001} are still widely used, while EdDSA-style constructions provide high-speed implementations and simpler deterministic signing behavior in practice \cite{bernstein2012}. Current standards also emphasize algorithm agility, updated parameter requirements, and migration readiness, as reflected in FIPS 186-5 \cite{fips1865} and the 2024 publication of post-quantum signature standards \cite{fips204,fips205}.
+
+From a systems perspective, high-frequency banking pipelines are sensitive not only to average delay but also to tail latency (for example, p99 and p999), because rare slow operations can propagate to matching, risk, and settlement stages. Tail effects are well documented in distributed systems \cite{dean2013}, and low-latency financial environments are particularly exposed to these penalties \cite{hasbrouck2013}. Therefore, the signature layer must be evaluated as part of the end-to-end path: message canonicalization, signing, certificate-chain validation, key lookup, and verification all contribute to total service time and jitter.
+
+Non-repudiation, however, is not guaranteed by a signature primitive alone. It depends on a complete evidence chain: secure key lifecycle management, strong identity binding, trustworthy timestamping, and verifiable audit records. This broader interpretation is consistent with foundational non-repudiation literature \cite{zhou2001} and modern key-management guidance \cite{sp80057}. In practical terms, a ``faster'' algorithm is insufficient if it weakens evidentiary quality or operational trust assumptions.
+
+Based on this foundation, the general objective of this study is to identify the signature algorithm that offers the best balance between non-repudiation guarantees and performance under low-latency operating conditions. The comparative analysis is therefore framed as a multi-criteria problem: cryptographic assurance, legal/audit robustness, and measurable latency overhead under realistic banking workloads.
 
 \section{Methodology}
 % WRITING ORDER: 2nd - Design after understanding fundamentals
@@ -71,7 +77,7 @@ Will implement in Sprint 5 to recap the value of the study and propose next step
 \section*{References}
 
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 
 \bibitem{rsa1978}
 Rivest, R. L., Shamir, A., and Adleman, L. (1978). A method for obtaining digital signatures and public-key cryptosystems. \textit{Communications of the ACM}, 21(2), 120-126.
