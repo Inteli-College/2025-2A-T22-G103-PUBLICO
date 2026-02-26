@@ -24,14 +24,23 @@ This paper investigates the impact of implementing digital signatures on latency
 Present the context of high-frequency banking communications, reliability requirements, and the role of digital signatures.
 
 \section{Problem Statement and Hypotheses}
-% WRITING ORDER: 2nd - Define early, but refine after methodology is clear
+% WRITING ORDER: 3nd - Define early, but refine after methodology is clear
 % Helps guide the experimental design
 Define the central problem and hypotheses about the trade-off between latency and non-repudiation guarantees.
 
 \section{Objectives}
 % WRITING ORDER: 2nd - Define alongside problem and hypotheses
 % Sets clear goals before starting experiments
-Will implement in Sprint 2 to outline specific objectives related to measuring latency impacts and non-repudiation benefits.
+The general objective of this study is to identify the digital-signature algorithm that provides the best balance between non-repudiation guarantees and performance in low-latency, high-frequency banking communications.
+
+To operationalize this goal, the study defines the following specific objectives:
+\begin{itemize}
+	\item quantify the end-to-end latency overhead introduced by different signature algorithms during message signing and verification, with emphasis on tail metrics (p99 and p999);
+	\item compare computational cost and throughput under representative transaction rates, key sizes, and payload profiles used in banking communication flows;
+	\item evaluate non-repudiation strength from an evidentiary perspective, including signature verifiability, key-management assumptions, auditability, and long-term validation considerations;
+	\item assess the trade-off frontier between security assurance and timing performance to determine which algorithmic option remains viable under strict service-level latency constraints;
+	\item provide decision criteria for selecting signature schemes in production environments where regulatory compliance, forensic traceability, and operational efficiency must be jointly satisfied.
+\end{itemize}
 
 \section{Theoretical Foundation}
 % WRITING ORDER: 1st - START HERE to build theoretical foundation
