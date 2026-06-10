@@ -1,10 +1,5 @@
 <table style="width: 100%;">
   <tr>
-    <td style="width: 50%; text-align: center;">
-      <a href="https://qitech.com.br/">
-        <img src="./img/qitech.png" alt="QI Tech" style="width: 20%; max-width: 200px;">
-      </a>
-    </td>
     <td style="width: 100%; text-align: center;">
       <a href="https://www.inteli.edu.br/">
         <img src="./img/logo-inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" style="width: 80%; max-width: 200px;">
